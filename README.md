@@ -38,7 +38,9 @@
 2.) The business will close if your ```sales``` reaches below ```0```
 
 ## Wireframes
-![](dist/assets/images/wireframe.png)
+
+<img src="https://github.com/anthill499/Coffee-Up/blob/main/dist/assets/images/wireframe.png?raw=true" style="height: 300px; width:400px;" >
+
 ## Technologies, Libraries, APIs
 
 This project will be implemented with the following technologies:
