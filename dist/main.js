@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://project-skeleton/./src/index.js?");
+eval("\nwindow.addEventListener(\"DOMContentLoaded\", () => {\n    const canvas = document.getElementById('coffee-canvas');\n    const ctx = canvas.getContext('2d');\n\n    canvas.width = 800;\n    canvas.height = 800;\n    \n    ctx.fillStyle = 'green';\n    ctx.fillRect(10, 10, 150, 100);\n\n});\n\n\n\n//# sourceURL=webpack://project-skeleton/./src/index.js?");
 
 /***/ })
 
