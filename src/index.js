@@ -24,5 +24,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     animate();
 
+    // event listeners
+
 });
 

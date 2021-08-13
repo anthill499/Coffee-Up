@@ -14,15 +14,43 @@
 
 # Functionality & MVPs
 
-In ***Coffee-Up***, users will be able to:
+In ***Coffee-Up***, users will be able to```:
 
-1) A user should be able to pause and unpause a game.
+1) Pause and unpause a game.
 
-2) A user should be able to create a drink by pressing a combination of two buttons. 
+2) Fill a randomly generated coffee order by pressing a combination of two buttons corresponding to the drink category and drink ingredient. 
 
-3) A user should be able to click on an instructions button and navigation links
+3) Click on an instructions buttons
 
-4) A user should be able to see the score, represented by ```sales```
+4) See the score, represented by ```sales```, which would decrease everytime the player fails create a drink in time. 
+
+Users must:
+
+1) Fill the order in time without fail. Failure to press the right key combinations will result in restarting the order. 
+
+Customers will:
+
+1) Come in increasing numbers based on the day of the week
+
+2) Walk out if the time spent waiting for the order is too long.
+
+Game Difficulty is comprised of:
+
+1) Phases and Days of the week
+
+    -  For example, ```Phase 1``` represents the "grand opening" week, consisting of levels of ```1-7```
+    -  As level passes, more customers come in
+    -  As each phase passes, more drink combinations are created as your business "grows"
+
+
+Game Score is determined by:
+
+1) Initial start up amount
+
+2) Accumulated points
+
+3) Multiplier (increases based on how many subsequent customers leave)
+
 
 In addition,  ***Coffee-Up*** will include:
 
@@ -33,7 +61,7 @@ In addition,  ***Coffee-Up*** will include:
 
 # Wireframes
 
-<img src="https://github.com/anthill499/Coffee-Up/blob/main/dist/assets/images/wireframe.png?raw=true" style="height: 300px; width:400px;">
+<img src="src/assets/images/wireframe.png" style="height: 300px; width:400px;">
 
 
 # Controls
