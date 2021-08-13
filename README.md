@@ -86,11 +86,13 @@ This project will be implemented with the following technologies:
 
         3) Revisiting and solidifying the concept of JavaScript Object-Oriented Programming   
 
-    - ```Saturday```
+    - ```Saturday & Sunday```
 
         1) Start the creation of all the classes and determine what methods and instance variables they would have
 
-        2) 
+        2) Begin the blueprint to game logic and have all script files sorted.
+
+        3) If time permits, keep searching for more pixelarts, tutorials, and an audio API implementation.
 
 3) ```Monday```: 
     - Implement all the underlying logic of the game. 
