@@ -1,16 +1,42 @@
 # Welcome to Coffee-Up! 
 
-## Background
+# Background
 
 ***Coffee-Up*** is a game that emulates the start of a coffee business from its grand opening to its normal days! Customers come in and order drinks consisting of a list of ingredients. Your responsibility is to assemble the drink together as more customers come in to the shop. This game is ```phase``` and ```level-based``` in that every week consists of ``7 levels``, representing every day of the week. For example,  ```Phase 1``` is the grand opening week and every level represents level each day of the week. e.g (```Monday``` - ```Sunday```). So, the goal is to:
 
-1.) Prevent as many customers from waiting as possible;
+1) Prevent as many customers from waiting as possible by making their drinks fast;
 
-2.) Maximize ```sales```(points)
+2) Maximize ```sales```(points)
+
+3) The business will close if your ```sales``` reaches below ```0```
 
 
 
-## Functionality & MVPs
+# Functionality & MVPs
+
+In ***Coffee-Up***, users will be able to:
+
+1) A user should be able to pause and unpause a game.
+
+2) A user should be able to create a drink by pressing a combination of two buttons. 
+
+3) A user should be able to click on an instructions button and navigation links
+
+4) A user should be able to see the score, represented by ```sales```
+
+In addition,  ***Coffee-Up*** will include:
+
+1) A README file
+
+2) Instructions
+
+
+# Wireframes
+
+<img src="https://github.com/anthill499/Coffee-Up/blob/main/dist/assets/images/wireframe.png?raw=true" style="height: 300px; width:400px;">
+
+
+# Controls
 
 1) Drink assembly is done by by pressing a ```Category Key``` (which corresponds to the ingredient category) ***in combination*** with a ```Ingredient Key``` (which corresponds to an ingredient/component of the coffee drink).
 
@@ -35,13 +61,7 @@
             * ```X``` = Sugar
             * ```C``` = Milk
 
-2.) The business will close if your ```sales``` reaches below ```0```
-
-## Wireframes
-
-<img src="https://github.com/anthill499/Coffee-Up/blob/main/dist/assets/images/wireframe.png?raw=true" style="height: 300px; width:400px;" >
-
-## Technologies, Libraries, APIs
+# Technologies, Libraries, APIs
 
 This project will be implemented with the following technologies:
 
@@ -51,16 +71,26 @@ This project will be implemented with the following technologies:
 4) ```HTML``` and ```CSS``` to provide a structure and styling
 5) ```JavaScript``` to provide behavior to the code
 
-## Inplementation Timeline
+# Inplementation Timeline
 1) ```Thursday```: Project Setup
     -  Being more comfortable with webpack, Canvas API, and looking through javascript event handling material.
     -  Watch a few tutorial videos and look through App Academy Open content
     -  Decide what technologies to use
     -  Decide which canvas background and sprites to use
 2) ```Friday & Weekend```: 
-    -  Having our Canvas API appear on the screen and outline the game board and all utilities
-    - Look through tutorials
-    - Be more comfortable with JavaScript
+    -  ```Friday```
+
+        1) The majority of Friday will be spent watching tutorials on respective technologies and reading documentation in preparation to implement the logic of the game.
+
+        2) Being more comfortable with the environment
+
+        3) Revisiting and solidifying the concept of JavaScript Object-Oriented Programming   
+
+    - ```Saturday```
+
+        1) Start the creation of all the classes and determine what methods and instance variables they would have
+
+        2) 
 
 3) ```Monday```: 
     - Implement all the underlying logic of the game. 
@@ -78,5 +108,12 @@ canvas.
 
 6) ```Thursday Morning```: Deploy to Github pages
          
+# Bonus Implementation
+
+if time permits:
+
+- There will be an audio API implementation, allowing a user to lower music, stop music and play music.
+
+- The cashier should be able to move around the counter, appearing as though he is making drinks.
 
 
