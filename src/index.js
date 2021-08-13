@@ -12,12 +12,17 @@ window.addEventListener("DOMContentLoaded", () => {
     coffeeShopBackground.src = "../dist/assets/images/cafe_background.png";
     ;
 
+    const cashierPicture = new Image();
+    cashierPicture.src = "../dist/assets/images/Alex_idle_16x16.png";
+    ;
+
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         ctx.drawImage(coffeeShopBackground, 0, 100, canvas.width, canvas.height)
+        ctx.drawImage(cashierPicture, 0, 0, 16, 32, 340, 340, 120, 200)
         requestAnimationFrame(animate);
     }
-
     animate();
+
 });
 
