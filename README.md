@@ -14,7 +14,7 @@
 
 # Functionality & MVPs
 
-In ***Coffee-Up***, users will be able to```:
+In ***Coffee-Up***, users will be able to:
 
 1) Pause and unpause a game.
 
@@ -28,11 +28,12 @@ Users must:
 
 1) Fill the order in time without fail. Failure to press the right key combinations will result in restarting the order. 
 
-Customers will:
+Orders will:
 
 1) Come in increasing numbers based on the day of the week
 
-2) Walk out if the time spent waiting for the order is too long.
+2) Be deleted and subtract points from the score if the time spent waiting for the order is too long.
+
 
 Game Difficulty is comprised of:
 
@@ -88,6 +89,10 @@ In addition,  ***Coffee-Up*** will include:
             * ```Z``` = Tapioca
             * ```X``` = Sugar
             * ```C``` = Milk
+        4. The ```Temperature``` keys
+            * ```1``` = Hot
+            * ```2``` = Cold
+
 
 # Technologies, Libraries, APIs
 
@@ -144,6 +149,6 @@ if time permits:
 
 - There will be an audio API implementation, allowing a user to lower music, stop music and play music.
 
-- The cashier should be able to move around the counter, appearing as though he is making drinks.
+- NPC Customer Animation towards cashier and away from cashier.
 
 
