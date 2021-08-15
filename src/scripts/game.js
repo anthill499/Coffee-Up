@@ -25,18 +25,23 @@ class Game {
         this.score -= (5 * this.multiplier);
     }
 
-    animate() {
+    // start, game loop
 
-        // this.ctx.clearRect(0, 0, canvas.width, canvas.height);
-        // this.ctx.fillRect(0, 0, canvas.width, canvas.height);
-        this.ctx.drawImage(coffeeShopBackground, 0, 0, canvas.width, canvas.height)
-        this.ctx.drawImage(cashierPicture, 0, 0, 16, 32, 240, 120, 110, 200)
-        this.ctx.requestAnimationFrame(animate);
-        // this.animate();
-        this.animate()
+    gameLoop() {
+        console.log("please don't exceed max callstack")
+        // window.requestAnimationFrame(this.gameLoop)
+        requestAnimationFrame(this.gameLoop.bind(this));
     }
 
+    start () {
+        this.gameLoop()
+        
+    }
+
+
+    // event handlers
 
 }
 
 export default Game;
+

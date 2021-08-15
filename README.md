@@ -2,7 +2,7 @@
 
 # Background
 
-***Coffee-Up*** is a game that emulates the start of a coffee business from its grand opening to its normal days! Customers come in and order drinks consisting of a list of ingredients. Your responsibility is to assemble the drink together as more customers come in to the shop. This game is ```phase``` and ```level-based``` in that every week consists of ``7 levels``, representing every day of the week. For example,  ```Phase 1``` is the grand opening week and every level represents level each day of the week. e.g (```Monday``` - ```Sunday```). So, the goal is to:
+***Coffee-Up!*** is a game that emulates the start of a coffee business from its grand opening to its normal days! Customers come in and order drinks consisting of a list of ingredients. Your responsibility is to assemble the drink together as more customers come in to the shop. This game is ```phase``` and ```level-based``` in that every week consists of ``7 levels``, representing every day of the week. For example,  ```Phase 1``` is the grand opening week and every level represents level each day of the week. e.g (```Monday``` - ```Sunday```). So, the goal is to:
 
 1) Prevent as many customers from waiting as possible by making their drinks fast;
 
@@ -14,7 +14,7 @@
 
 # Functionality & MVPs
 
-In ***Coffee-Up***, users will be able to:
+In ***Coffee-Up!***, users will be able to:
 
 1) Pause and unpause a game.
 
@@ -53,7 +53,7 @@ Game Score is determined by:
 3) Multiplier (increases based on how many subsequent customers leave)
 
 
-In addition,  ***Coffee-Up*** will include:
+In addition,  ***Coffee-Up!*** will include:
 
 1) A README file
 
