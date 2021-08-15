@@ -4,6 +4,7 @@
 /* losing screen possibly */
 #game-lost {
   mix-blend-mode: luminosity;
+  opacity: 0.8;
 }
 
 #coffeeuptitle {

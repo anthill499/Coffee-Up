@@ -1,4 +1,4 @@
-import "../src/assets/stylesheets/index.css"
+import "../src/assets/stylesheets/index.css";  
 import Game from "./scripts/game";
 
 
