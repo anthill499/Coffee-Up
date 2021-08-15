@@ -11,15 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const newGame = new Game(ctx);
-    newGame.start()
-
-    // "Press anywhere to Start"
     
-    window.addEventListener('keydown', e => {
-        console.log("hey im working");
-    });
-
     
+
 
 });
 

@@ -12,6 +12,9 @@
     background-image: url("/Users/anthill499/Desktop/Personal Projects/PROJECT SKELETON/dist/981f7b25a38fa0d46a28ba3777b9e9ea.png");
     
 }
+canvas {
+    position: absolute;
+}
 
 #coffee-canvas {
     background-image: url("/Users/anthill499/Desktop/Personal Projects/PROJECT SKELETON/src/assets/images/cafe_background.png");

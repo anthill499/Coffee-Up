@@ -1,32 +1,34 @@
-
 class Order {
 
-    constructor (ctx, customer,currentLevel, currentPhase) {
+    constructor (ctx, currentLevel, currentPhase) {
 
         this.ctx = ctx,
-        this.customer = customer,
+        // this.customer = customer,
         this.cl = currentLevel,
         this.cp = currentPhase
 
-        this.drinkSizes = ["S", "M", "L"],
-        this.drinkSizesKeyBindings = [81, 87, 69],
+        //event.code
+        this.drinkSizes = ["S", "M", "L"],  
+        this.drinkSizesKeyBindings = ["KeyQ", "KeyW", "KeyE"],
 
         this.coffeeTypes = ["Regular Coffee", "Cold Brew", "Latte", "Cappucino"],
-        this.coffeeTypesKeyBindings = [65, 83, 68, 70],
+        this.coffeeTypesKeyBindings = ["KeyA", "KeyS", "KeyD", "KeyF"],
 
         this.toppings = ["Tapioca", "Sugar", "Milk"],
-        this.toppingsKeyBindings = [90, 88, 67],
+        this.toppingsKeyBindings = ["KeyZ", "KeyX", "KeyC"],
 
         this.temperature = ["Hot", "Cold"],
-        this.temperatureKeyBindings = [49, 50]
-        
+        this.temperatureKeyBindings = ["Digit1", "Digit2"]
     }
 
     generateRandomOrder() {
         const clevel = this.cl;
-        const cphase
-        const orderArray = [];
+        const cphase = this.cp;
+        const finalOrderArray = [];
+        
         for (let i = 0; i < clevel; i++) { 
+            const orderArray = [];
+
             orderArray.push(this.drinkSizesKeyBindings[generateRandomIndex(this.drinkSizes)]);
             orderArray.push(this.coffeeTypesKeyBindings[generateRandomIndex(this.coffeeTypes)]);
 
@@ -35,9 +37,9 @@ class Order {
             }
 
             orderArray.push(this.temperatureKeyBindings[generateRandomIndex(this.temperature)]);
+            finalOrderArray.push(orderArray)
         }
-        return orderArray;
-        //level 1
+        return finalOrderArray;
     }
 
     generateRandomIndex(list) {
@@ -45,23 +47,35 @@ class Order {
     };
 
     static inputKeys(event) {
-        const LEFT_KEY = 37;
-        const RIGHT_KEY = 39;
-        const UP_KEY = 38;
-        const DOWN_KEY = 40;
 
-        const keyPressed = event.keyCode;
-        const goingUp = dy === -10;
-        const goingDown = dy === 10;
-        const goingRight = dx === 10;
-        const goingLeft = dx === -10;
+        // Category keys
+        const LEFT_KEY = "ArrowLeft"; // Drink Size
+        const RIGHT_KEY = "ArrowRight"; // Coffee Type
+        const UP_KEY = "ArrowUp"; // Toppings
+        const DOWN_KEY = "ArrowDown"; // Temperature
 
+        //INGREDIENT KEYS
+        const DS_SMALL = "KeyQ"; // Drink Size: Small
+        const DS_MEDIUM = "KeyW"; // Drink Size: Medium
+        const DS_LARGE = "KeyE"; // Drink Size: Large
 
+        const CTRC= "KeyA"; // Coffee Type: Regular Coffee
+        const CTCB = "KeyS"; // Coffee Type: Cold Brew
+        const CTL = "KeyD"; // Coffee Type: Latte
+        const CTCAP = "KeyF"; // Coffee Type: Cappucino
 
+        const TTAP = "KeyZ"; // Topping: Tapioca
+        const TSUG = "KeyX"; // Topping: Sugar
+        const TMILK = "KeyZ"; // Topping: Milk
+
+        const TEMPHOT = "Digit1" // Temperature: Hot
+        const TEMPCOLD = "Digit2" // Temperature: Cold
+        
     }
 
+
+
+
 };
-
-
 
 export default Order;
