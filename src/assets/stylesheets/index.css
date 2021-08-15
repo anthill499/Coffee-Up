@@ -1,3 +1,10 @@
+/* losing screen possibly */
+
+#game-lost {
+    mix-blend-mode: luminosity;
+}
+
+
 #coffeeuptitle {
     position: relative;
     z-index: 9998 !important;
@@ -6,12 +13,13 @@
     margin-right: auto;
     top: 15px;
     filter: brightness(120%);
+    mix-blend-mode: multiply;
 }
 
 .background {
     background-image: url("/Users/anthill499/Desktop/Personal Projects/PROJECT SKELETON/dist/981f7b25a38fa0d46a28ba3777b9e9ea.png");
     
-}
+} 
 canvas {
     position: absolute;
 }

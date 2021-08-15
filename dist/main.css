@@ -1,6 +1,11 @@
 /*!*******************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/assets/stylesheets/index.css ***!
   \*******************************************************************************************************************************************************/
+/* losing screen possibly */
+#game-lost {
+  mix-blend-mode: luminosity;
+}
+
 #coffeeuptitle {
   position: relative;
   z-index: 9998 !important;
@@ -9,6 +14,7 @@
   margin-right: auto;
   top: 15px;
   filter: brightness(120%);
+  mix-blend-mode: multiply;
 }
 
 .background {

@@ -27,15 +27,14 @@ class Game {
         this.score -= (5 * this.multiplier);
     }
 
-
     // Start, Game loop;
     gameLoop() {
-        console.log("please don't exceed max callstack");
+        console.log("game is still running");
 
         if (this.gameRunning === true) {
             requestAnimationFrame(this.gameLoop.bind(this));
         } else {
-            console.log("finished");
+            console.log("game stopped");
         }
     };
 
@@ -85,20 +84,23 @@ class Game {
 
         // Start and End Game
         window.addEventListener('keydown', e => {
-            
+
             if (e.code === "Space" && !this.gameRunning) {
+                const bodyTag = document.querySelector('body');
+                bodyTag.removeAttribute('id')
                 this.startGame();
             } else if (e.code === "KeyP" && this.gameRunning) {         // "Press P to stop game"
                 this.stopGame();
-                console.log("why arent you stopping");
+                const bodyTag = document.querySelector('body');
+                bodyTag.setAttribute('id', 'game-lost')
             } else {
-                throw new Error("come on man!");
+                throw new Error("ERROR FROM EVENT LISTENERS");
             }
+
         });
     };
 
 
-    
 
 
 
