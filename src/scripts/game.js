@@ -1,10 +1,11 @@
 import Order from "./order";
+import * as DOMUTILS from "./domUtil"
 
 class Game {
 
     constructor(ctx) {
         this.ctx = ctx,
-        this.level = 0,
+        this.level = 1,
         this.phase = 1,
         this.score = 100,
         this.multiplier = 1
@@ -12,7 +13,6 @@ class Game {
         this.currentOrder = null;
         this.mainKeyBinds();
         this.inputKeys = [];
-
     }   
 
     //Increment functions
@@ -42,12 +42,13 @@ class Game {
         window.addEventListener('keydown', e => this.handleUserInput(e));
     };
 
-// ------------GAME LOGIC ------------------------------------------------
+//-------------GAME LOGIC ------------------------------------------------------
 
     // Start, Game loop;
     gameLoop() {
         console.log("game is still running");
 
+        
         if (this.gameRunning === true && this.score > 0) {
             requestAnimationFrame(this.gameLoop.bind(this));
         } else {
@@ -73,7 +74,7 @@ class Game {
         this.currentOrder = newOrder.generateRandomOrder();
         return this.slice();
     }
-    
+
     // Restart order
     RestartOrder(currentOrder, longerOrder) {   
         const longerLength = longerOrder.length         // Length of placeholder order
@@ -88,6 +89,7 @@ class Game {
         return currentOrder;
     }
 
+
     handleUserInput(e) {
         if (!this.gameRunning) {                                 // if this.gameRunning === false
             if (e.code === "Space") {                            // "Press Space to start/unpause the game"
@@ -96,6 +98,8 @@ class Game {
                 this.startGame();
             } else if (e.code === "KeyP") {
                 throw new Error("inside !condition");
+            } else {
+                throw new Error("Invalid Key Input")
             }
         } else {                                                 // if this.gameRunning === true
             if (e.code === "KeyP") {                             // "Press P to stop game"
@@ -103,16 +107,12 @@ class Game {
                 const bodyTag = document.querySelector('body');
                 bodyTag.setAttribute('id', 'game-lost')
             } else if (e.code === Order.leftKey) {
-
                 this.inputKeys.push(Order.leftKey)
             } else if (e.code === Order.rightKey) {
-
                 this.inputKeys.push(Order.rightKey)
             } else if (e.code === Order.upKey) {
-
                 this.inputKeys.push(Order.upKey)
             } else if (e.code === Order.downKey) {
-
                 this.inputKeys.push(Order.downKey)
             } else if (e.code === Order.DS_SMALL) {
                 this.inputKeys.push(Order.DS_SMALL)
