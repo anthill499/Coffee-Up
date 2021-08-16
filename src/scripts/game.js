@@ -50,20 +50,29 @@ class Game {
     // Start, Game loop;
     gameLoop() {
         console.log("game is still running");
+
         if (this.gameRunning === true && this.score > 0) {
             // handles extreme situations 
+
             if (this.currentOrder.length > 0 && this.currentOrderPlayed.length === 0) { // whole list length still there
+
+                gameUtils.removeOrderComponents();
                 this.currentOrderPlayed = gameUtils.dequeue(this.currentOrder)          // but currentplayed list is not there
-            } else if (this.currentOrder.length === 0) {                        // when whole lists length is 0                      
+                
+
+            } else if (this.currentOrder.length === 0 && this.currentOrderPlayed.length === 0) {  // Both CO and COP are empty
+
                 this.incrementCurrentLevel();
-                if (this.level % 7 === 1) { this.incrementPhase(); }
-                this.currentOrderPlayed = null
+                gameUtils.removeOrderComponents();
+                if (this.level % 7 === 1 && this.phase !== 1) { this.incrementPhase(); }
+                this.currentOrderPlayed = null;
+
             }
-            
             // DDR type-function goes here, should have a while condition.
+            
             requestAnimationFrame(this.gameLoop.bind(this));
         } else if (this.score <= 0) {
-            alert("you lost")
+            alert("you lost");
         }
     };
 
@@ -77,13 +86,7 @@ class Game {
 
     // Stop the game;
     stopGame() {
-        this.gameRunning = false;
-        this.level = 1;
-        this.phase = 1;
-        this.score = 100;
-        this.multiplier = 1;
-        this.currentOrder = null;      // currentOrder is set to null when game stops;
-        this.isPaused = null;
+        this.resetStats();
         const bodyTag = document.querySelector('body');
         bodyTag.removeAttribute('id');
     }
@@ -102,6 +105,20 @@ class Game {
         }
     };
 
+    // Reset Stats
+    resetStats() {
+        this.ctx = ctx,
+        this.level = 1,
+        this.phase = 1,
+        this.score = 100,
+        this.multiplier = 1
+        this.gameRunning = false;
+        this.currentOrder = null;           // [["drinksize", "small", etc.], ["drinksize", "medium", etc.]]
+        this.mainKeyBinds();
+        this.inputKeys = [];
+        this.currentOrderPlayed = null;
+        this.isPaused = null;
+    }
     // Making order
     createOrders() {
         const newOrder = new Order(this.level, this.phase);
@@ -120,14 +137,15 @@ class Game {
                 this.stopGame();
             }
         } else {                                                 // if this.gameRunning === true
-            if (e.code === "KeyP") {                             // "Press P to stop game"
+            if (e.code === "KeyP" && this.isPaused === false) {                             // "Press P to stop game"
                 this.togglePause(); 
             } else if (Object.values(Order.ingredientKeys).includes(e.code) || Object.values(Order.categoryKeys).includes(e.code)) {
-                this.inputKeys.push(e.code)
-                if (!gameUtils.orderComparer(this.currentOrderPlayed, this.inputKeys)) {  // if inputkeys isnt the same as the COP
-                    this.inputKeys = []
-                    this.decrementScore();
-                }   
+                this.inputKeys.push(e.code);
+                // if (!gameUtils.orderComparer(this.currentOrderPlayed, this.inputKeys)) {  // if inputkeys isnt the same as the COP
+                //     // this.inputKeys = []
+                //     // this.decrementScore();
+                // }   
+                console.log(e.code)
             } else {
                 console.log("just press p")
             };
