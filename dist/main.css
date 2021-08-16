@@ -2,9 +2,35 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/assets/stylesheets/index.css ***!
   \*******************************************************************************************************************************************************/
 /* losing screen possibly */
+@font-face {
+  font-family: "silkScreen";
+  src: url(e2940cc1c6ebae46bc13.woff) format("woff");
+}
 #game-lost {
   mix-blend-mode: luminosity;
   opacity: 0.8;
+}
+
+* {
+  font-family: "silkScreen";
+  font-size: 35px;
+}
+
+#orders {
+  color: azure;
+  position: relative;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  z-index: 2;
+  transform: translate(750px, 80px);
+  filter: brightness(120%);
+  padding: 0px;
+  width: 100%;
+}
+
+.checked-off {
+  color: green;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  filter: brightness(180%);
 }
 
 #coffeeuptitle {
@@ -18,7 +44,7 @@
 }
 
 .background {
-  background-image: url("/Users/anthill499/Desktop/Personal Projects/PROJECT SKELETON/dist/981f7b25a38fa0d46a28ba3777b9e9ea.png");
+  background-image: url(981f7b25a38fa0d46a28.png);
 }
 
 canvas {
@@ -26,7 +52,7 @@ canvas {
 }
 
 #coffee-canvas {
-  background-image: url("/Users/anthill499/Desktop/Personal Projects/PROJECT SKELETON/src/assets/images/cafe_background.png");
+  background-image: url(9158235717c227d66bb9.png);
   background-size: 900px 700px;
   background-repeat: no-repeat;
   position: absolute;

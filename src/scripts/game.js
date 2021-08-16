@@ -1,8 +1,8 @@
 import Order from "./order";
-import * as DOMUTILS from "./domUtil"
+import * as gameUtils from "./gameUtil"
+
 
 class Game {
-
     constructor(ctx) {
         this.ctx = ctx,
         this.level = 1,
@@ -10,9 +10,11 @@ class Game {
         this.score = 100,
         this.multiplier = 1
         this.gameRunning = false;
-        this.currentOrder = null;
+        this.currentOrder = null;           // [["drinksize", "small", etc.], ["drinksize", "medium", etc.]]
         this.mainKeyBinds();
         this.inputKeys = [];
+        this.currentOrderPlayed = null;     
+        this.isPaused = null;            
     }   
 
     //Increment functions
@@ -34,6 +36,7 @@ class Game {
 
     decrementScore() {
         this.score -= (5 * this.multiplier);
+        this.incrementMultiplier();
     }
 
     // Key Binds
@@ -47,103 +50,88 @@ class Game {
     // Start, Game loop;
     gameLoop() {
         console.log("game is still running");
-
-        
         if (this.gameRunning === true && this.score > 0) {
+            // handles extreme situations 
+            if (this.currentOrder.length > 0 && this.currentOrderPlayed.length === 0) { // whole list length still there
+                this.currentOrderPlayed = gameUtils.dequeue(this.currentOrder)          // but currentplayed list is not there
+            } else if (this.currentOrder.length === 0) {                        // when whole lists length is 0                      
+                this.incrementCurrentLevel();
+                if (this.level % 7 === 1) { this.incrementPhase(); }
+                this.currentOrderPlayed = null
+            }
+            
+            // DDR type-function goes here, should have a while condition.
             requestAnimationFrame(this.gameLoop.bind(this));
-        } else {
-            console.log("game stopped");
+        } else if (this.score <= 0) {
+            alert("you lost")
         }
     };
 
     // Start the game;
     startGame() {
         this.gameRunning = true;
-        this.gameLoop()
-    }
+        this.createOrders();
+        this.currentOrderPlayed = gameUtils.dequeue(this.currentOrder);
+        this.gameLoop();
+    };
 
     // Stop the game;
-    stopGame () {
+    stopGame() {
         this.gameRunning = false;
-        this.currentOrder = null; // currentOrder is set to null when game stops;
+        this.level = 1;
+        this.phase = 1;
+        this.score = 100;
+        this.multiplier = 1;
+        this.currentOrder = null;      // currentOrder is set to null when game stops;
+        this.isPaused = null;
+        const bodyTag = document.querySelector('body');
+        bodyTag.removeAttribute('id');
     }
+
+    // Pause and Resume Game;
+    togglePause() { 
+        const bodyTag = document.querySelector('body');
+        if (!this.gameRunning) {
+            this.gameRunning = true
+            bodyTag.removeAttribute('id');
+            this.isPaused = false;
+        } else {
+            this.gameRunning = false
+            bodyTag.setAttribute('id', 'game-lost');
+            this.isPaused = true;
+        }
+    };
 
     // Making order
-    createOrder() {
+    createOrders() {
         const newOrder = new Order(this.level, this.phase);
-        this.currentOrder = newOrder.generateRandomOrder();
-        return this.slice();
+        this.currentOrder = newOrder.generateRandomOrders();
     }
 
-    // Restart order
-    RestartOrder(currentOrder, longerOrder) {   
-        const longerLength = longerOrder.length         // Length of placeholder order
-        const currentLength = currentOrder.length       // Length of current order
-
-        // iterates over range from i to the longerlength
-        for (let i = currentLength; i < longerLength; i++) {
-            currentOrder.push(longerOrder[i]);          //pushes each element that is not in currentOrder to 
-        };
-        this.decrementScore();                          // Decrement Score if you have to restart the order.
-        this.incrementMultiplier();
-        return currentOrder;
-    }
-
-
+    // event handler
     handleUserInput(e) {
         if (!this.gameRunning) {                                 // if this.gameRunning === false
-            if (e.code === "Space") {                            // "Press Space to start/unpause the game"
-                const bodyTag = document.querySelector('body');
-                bodyTag.removeAttribute('id')
+            if (e.code === "Space" && this.isPaused === null) {                            // "Press Space to start/unpause the game"                                                                // Refactor!
                 this.startGame();
             } else if (e.code === "KeyP") {
-                throw new Error("inside !condition");
-            } else {
-                throw new Error("Invalid Key Input")
+                this.togglePause();
+                this.gameLoop();
+            } else if (e.code === "Digit0"){
+                this.stopGame();
             }
         } else {                                                 // if this.gameRunning === true
             if (e.code === "KeyP") {                             // "Press P to stop game"
-                this.stopGame();
-                const bodyTag = document.querySelector('body');
-                bodyTag.setAttribute('id', 'game-lost')
-            } else if (e.code === Order.leftKey) {
-                this.inputKeys.push(Order.leftKey)
-            } else if (e.code === Order.rightKey) {
-                this.inputKeys.push(Order.rightKey)
-            } else if (e.code === Order.upKey) {
-                this.inputKeys.push(Order.upKey)
-            } else if (e.code === Order.downKey) {
-                this.inputKeys.push(Order.downKey)
-            } else if (e.code === Order.DS_SMALL) {
-                this.inputKeys.push(Order.DS_SMALL)
-            } else if (e.code === Order.DS_MEDIUM) {
-                this.inputKeys.push(Order.DS_MEDIUM)
-            } else if (e.code === Order.DS_LARGE) {
-                this.inputKeys.push(Order.DS_LARGE)
-            } else if (e.code === Order.CTRC) {
-                this.inputKeys.push(Order.CTRC)
-            } else if (e.code === Order.CTCB) {
-                this.inputKeys.push(Order.CTCB)
-            } else if (e.code === Order.CTL) {
-                this.inputKeys.push(Order.CTL)
-            } else if (e.code === Order.CTCAP) {
-                this.inputKeys.push(Order.CTCAP)
-            } else if (e.code === Order.TTAP) {
-                this.inputKeys.push(Order.TTAP)
-            } else if (e.code === Order.TSUG) {
-                this.inputKeys.push(Order.TSUG)
-            } else if (e.code === Order.TMILK) {
-                this.inputKeys.push(Order.TMILK)
-            } else if (e.code === Order.TEMPHOT) {
-                this.inputKeys.push(Order.TEMPHOT)
-            } else if (e.code === Order.TEMPCOLD) {
-                this.inputKeys.push(Order.TEMPCOLD)
+                this.togglePause(); 
+            } else if (Object.values(Order.ingredientKeys).includes(e.code) || Object.values(Order.categoryKeys).includes(e.code)) {
+                this.inputKeys.push(e.code)
+                if (!gameUtils.orderComparer(this.currentOrderPlayed, this.inputKeys)) {  // if inputkeys isnt the same as the COP
+                    this.inputKeys = []
+                    this.decrementScore();
+                }   
             } else {
-                throw new Error("Invalid Key Input")
+                console.log("just press p")
             };
-        }
-    }
-
-
+        };
+    };
 };
 export default Game;

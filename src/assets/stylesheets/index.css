@@ -1,10 +1,35 @@
 /* losing screen possibly */
+@font-face {
+    font-family: 'silkScreen';
+    src: url("../fonts/silkscreen_normal_macroman/slkscr-webfont.woff") format("woff");
+}
 
 #game-lost {
     mix-blend-mode: luminosity;
     opacity: 0.8;
 }
 
+* {
+    font-family: 'silkScreen';
+    font-size: 35px;
+}
+
+#orders {
+    color: azure;
+    position: relative;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    z-index: 2;
+    transform: translate(750px, 80px);
+    filter: brightness(120%);
+    padding: 0px; 
+    width: 100%
+}
+
+.checked-off {
+    color: green;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    filter: brightness(180%);
+}
 
 #coffeeuptitle {
     position: relative;
@@ -14,7 +39,6 @@
     margin-right: auto;
     top: 15px;
     filter: brightness(120%);
-    
 }
 
 .background {

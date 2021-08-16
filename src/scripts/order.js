@@ -1,7 +1,5 @@
 class Order {
-
     constructor (currentLevel, currentPhase) {
-
         // this.customer = customer,
         this.cl = currentLevel,
         this.cp = currentPhase
@@ -29,22 +27,22 @@ class Order {
         for (let i = 0; i < clevel; i++) { 
             const orderArray = [];
             orderArray.push(Order.leftKey)
-            orderArray.push(this.drinkSizesKeyBindings[generateRandomIndex(this.drinkSizes)]);
+            orderArray.push(this.drinkSizesKeyBindings[this.generateRandomIndex(this.drinkSizes)]);
 
             orderArray.push(Order.rightKey)
-            orderArray.push(this.coffeeTypesKeyBindings[generateRandomIndex(this.coffeeTypes)]);
+            orderArray.push(this.coffeeTypesKeyBindings[this.generateRandomIndex(this.coffeeTypes)]);
 
             for (let j = 0; j < cphase; j++) {
                 orderArray.push(Order.rightKey)
-                orderArray.push(this.toppingsKeyBindings[generateRandomIndex(this.toppings)]);
+                orderArray.push(this.toppingsKeyBindings[this.generateRandomIndex(this.toppings)]);
             }
 
             orderArray.push(Order.downKey)
-            orderArray.push(this.temperatureKeyBindings[generateRandomIndex(this.temperature)]);
+            orderArray.push(this.temperatureKeyBindings[this.generateRandomIndex(this.temperature)]);
             finalOrderArray.push(orderArray)
         }
         return finalOrderArray;
-    }
+    };
 
     generateRandomIndex(list) {
         return Math.floor(Math.random() * (list.length - 0.1));
@@ -59,8 +57,6 @@ class Order {
     }
 
     //INGREDIENT KEYS
-
-
     static ingredientKeys = {
         DS_SMALL:"KeyQ",        // Drink Size: Small
         DS_MEDIUM: "KeyW",      // Drink Size: Medium
@@ -71,24 +67,25 @@ class Order {
         CTCAP: "KeyF",          // Coffee Type: Cap    
         TTAP: "KeyZ",           // Topping: Tapioca
         TSUG: "KeyX",           // Topping: Sugar
-        TMILK: "KeyZ",          // Topping 
+        TMILK: "KeyZ",          // Topping: Milk 
         TEMPHOT: "Digit1",      // Temperature: Hot
         TEMPCOLD: "Digit2"      // Temperature: Cold
     }
 
-    static ingredientKeys = {
-        DS_SMALL: "KeyQ",        // Drink Size: Small
-        DS_MEDIUM: "KeyW",      // Drink Size: Medium
-        DS_LARGE: "KeyE",       // Drink Size: 
-        CTRC: "KeyA",           // Coffee Type: Regular Coffee
-        CTCB: "KeyS",           // Coffee Type: Cold Brew
-        CTL: "KeyD",            // Coffee Type: Latte
-        CTCAP: "KeyF",          // Coffee Type: Cap    
-        TTAP: "KeyZ",           // Topping: Tapioca
-        TSUG: "KeyX",           // Topping: Sugar
-        TMILK: "KeyZ",          // Topping 
-        TEMPHOT: "Digit1",      // Temperature: Hot
-        TEMPCOLD: "Digit2"      // Temperature: Cold
+    // event.Code corresponding to their String values
+    static drinkDictionary = {
+        "KeyQ": "Small",       
+        "KeyW": "Medium",
+        "KeyE": "Large",      
+        "KeyA": "Regular Coffee",
+        "KeyS": "Cold Brew",
+        "KeyD": "Latte",
+        "KeyF": "Cap",    
+        "KeyZ": "Tapioca",
+        "KeyX": "Sugar",        // Topping: Sugar
+        "KeyZ": "Milk",         // Topping 
+        "Digit1": "Hot",      // Temperature: Hot
+        "Digit2": "Cold"      // Temperature: Cold
     }
 };
 

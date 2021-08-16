@@ -1,15 +1,13 @@
 import Order from "./order"
 
-export function hideOrder() {
-    // id="hide-order"
+export function hideOrder() {   // id="hide-order"
     const orderDiv = document.getElementsByClassName('orders')
     orderDiv.setAttribute('id', 'hide-order')
 }
 
-export function showOrder() {
-    // id="hide-order"
+export function unhideOrder() {     // id="hide-order"
     const orderDiv = document.getElementsByClassName('orders')
-    orderDiv.removeAttribute('id', 'hide-order')
+    orderDiv.removeAttribute('id');
 }
 
 export function checkOffOrder(ele) {
@@ -22,19 +20,16 @@ export function uncheckOrder(ele) {
 
 export function removeOrderComponents() {
     const divNode = document.getElementsByClassName('orders')
-
     if (divNode.hasChildNodes()) {
         for (let i = divNode.childNodes.length - 1; i >= 0; i--) {
             divNode.removeChild(divNode.childNodes[i]);
         }
     }
-
 }
 
 export function printOrder(orderArray) {
     const orderDiv = document.getElementsByClassName('orders')
     orderDiv.removeAttribute('id', 'hide-order')
-
     for (let i = 0; i < orderArray.length; i++) {
         // create element
         const orderPart = document.createElement('p')
@@ -47,5 +42,18 @@ export function printOrder(orderArray) {
 
         // then append the newly created element to the orderDiv
         orderDiv.appendChild(orderDiv)
+    };
+};
+
+export function orderComparer(shownOrder, keyInputs) {
+    return (JSON.stringify(keyInputs) === JSON.stringify(shownOrder.slice(0, keyInputs.length))) ? true : false
+};
+
+export function dequeue(orderList) {
+    if (orderList.length !== 0) {
+        return orderList.shift;
+    } else {
+        return null;
     }
 };
+
