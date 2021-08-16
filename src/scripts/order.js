@@ -51,28 +51,45 @@ class Order {
     };
 
     // CATEGORY KEYS
-    static leftKey = "ArrowLeft"    // Drink Size
-    static rightKey = "ArrowRight"  // Coffee Type
-    static upKey = "ArrowUp"      // Toppings
-    static downKey = "ArrowDown"    // Temperature
+    static categoryKeys = {
+        leftKey: "ArrowLeft",    // Drink Size
+        rightKey: "ArrowRight",  // Coffee Type
+        upKey: "ArrowUp",      // Toppings
+        downKey: "ArrowDown"    // Temperature
+    }
 
     //INGREDIENT KEYS
-    static DS_SMALL = "KeyQ";       // Drink Size: Small
-    static DS_MEDIUM = "KeyW";      // Drink Size: Medium
-    static DS_LARGE = "KeyE";       // Drink Size: Large
 
-    static CTRC= "KeyA";            // Coffee Type: Regular Coffee
-    static CTCB = "KeyS";           // Coffee Type: Cold Brew
-    static CTL = "KeyD";            // Coffee Type: Latte
-    static CTCAP = "KeyF";          // Coffee Type: Cappucino
 
-    static TTAP = "KeyZ";           // Topping: Tapioca
-    static TSUG = "KeyX";           // Topping: Sugar
-    static TMILK = "KeyZ";          // Topping: Milk
+    static ingredientKeys = {
+        DS_SMALL:"KeyQ",        // Drink Size: Small
+        DS_MEDIUM: "KeyW",      // Drink Size: Medium
+        DS_LARGE: "KeyE",       // Drink Size: 
+        CTRC: "KeyA",           // Coffee Type: Regular Coffee
+        CTCB: "KeyS",           // Coffee Type: Cold Brew
+        CTL: "KeyD",            // Coffee Type: Latte
+        CTCAP: "KeyF",          // Coffee Type: Cap    
+        TTAP: "KeyZ",           // Topping: Tapioca
+        TSUG: "KeyX",           // Topping: Sugar
+        TMILK: "KeyZ",          // Topping 
+        TEMPHOT: "Digit1",      // Temperature: Hot
+        TEMPCOLD: "Digit2"      // Temperature: Cold
+    }
 
-    static TEMPHOT = "Digit1";      // Temperature: Hot
-    static TEMPCOLD = "Digit2";     // Temperature: Cold
-    
+    static ingredientKeys = {
+        DS_SMALL: "KeyQ",        // Drink Size: Small
+        DS_MEDIUM: "KeyW",      // Drink Size: Medium
+        DS_LARGE: "KeyE",       // Drink Size: 
+        CTRC: "KeyA",           // Coffee Type: Regular Coffee
+        CTCB: "KeyS",           // Coffee Type: Cold Brew
+        CTL: "KeyD",            // Coffee Type: Latte
+        CTCAP: "KeyF",          // Coffee Type: Cap    
+        TTAP: "KeyZ",           // Topping: Tapioca
+        TSUG: "KeyX",           // Topping: Sugar
+        TMILK: "KeyZ",          // Topping 
+        TEMPHOT: "Digit1",      // Temperature: Hot
+        TEMPCOLD: "Digit2"      // Temperature: Cold
+    }
 };
 
 export default Order;
