@@ -45,9 +45,9 @@ export function printOrder(orderArray) {
     };
 };
 
-export function orderComparer(shownOrder, keyInputs) {
-    return (JSON.stringify(keyInputs) === JSON.stringify(shownOrder.slice(0, keyInputs.length))) ? true : false
-};
+// export function orderComparer(shownOrder, keyInputs) {
+//     return (JSON.stringify(keyInputs) === JSON.stringify(shownOrder.slice(0, keyInputs.length))) ? true : false
+// };
 
 export function dequeue(orderList) {
     if (orderList.length !== 0) {

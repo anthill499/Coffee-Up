@@ -1,7 +1,6 @@
 import Order from "./order";
 import * as gameUtils from "./gameUtil"
 
-
 class Game {
     constructor(ctx) {
         this.ctx = ctx,
@@ -50,26 +49,9 @@ class Game {
     // Start, Game loop;
     gameLoop() {
         console.log("game is still running");
-
         if (this.gameRunning === true && this.score > 0) {
-            // handles extreme situations 
-
-            if (this.currentOrder.length > 0 && this.currentOrderPlayed.length === 0) { // whole list length still there
-
-                gameUtils.removeOrderComponents();
-                this.currentOrderPlayed = gameUtils.dequeue(this.currentOrder)          // but currentplayed list is not there
-                
-
-            } else if (this.currentOrder.length === 0 && this.currentOrderPlayed.length === 0) {  // Both CO and COP are empty
-
-                this.incrementCurrentLevel();
-                gameUtils.removeOrderComponents();
-                if (this.level % 7 === 1 && this.phase !== 1) { this.incrementPhase(); }
-                this.currentOrderPlayed = null;
-
-            }
             // DDR type-function goes here, should have a while condition.
-            
+
             requestAnimationFrame(this.gameLoop.bind(this));
         } else if (this.score <= 0) {
             alert("you lost");
@@ -102,7 +84,7 @@ class Game {
             this.gameRunning = false
             bodyTag.setAttribute('id', 'game-lost');
             this.isPaused = true;
-        }
+        };
     };
 
     // Reset Stats
@@ -128,28 +110,28 @@ class Game {
     // event handler
     handleUserInput(e) {
         if (!this.gameRunning) {                                 // if this.gameRunning === false
-            if (e.code === "Space" && this.isPaused === null) {                            // "Press Space to start/unpause the game"                                                                // Refactor!
+            if (e.code === "Space" && this.isPaused === null) {       
+                                     // "Press Space to start/unpause the game"                                                                // Refactor!
                 this.startGame();
             } else if (e.code === "KeyP") {
                 this.togglePause();
                 this.gameLoop();
-            } else if (e.code === "Digit0"){
+            } else if (e.code === "Digit0") {
                 this.stopGame();
-            }
+            };
         } else {                                                 // if this.gameRunning === true
-            if (e.code === "KeyP" && this.isPaused === false) {                             // "Press P to stop game"
+            if (e.code === "KeyP" && this.isPaused === false) {   
+                                          // "Press P to stop game"
                 this.togglePause(); 
             } else if (Object.values(Order.ingredientKeys).includes(e.code) || Object.values(Order.categoryKeys).includes(e.code)) {
                 this.inputKeys.push(e.code);
-                // if (!gameUtils.orderComparer(this.currentOrderPlayed, this.inputKeys)) {  // if inputkeys isnt the same as the COP
-                //     // this.inputKeys = []
-                //     // this.decrementScore();
-                // }   
                 console.log(e.code)
             } else {
-                console.log("just press p")
+                console.log("LMFAOO")
             };
         };
     };
+
 };
+
 export default Game;
