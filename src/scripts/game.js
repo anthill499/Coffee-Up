@@ -14,7 +14,9 @@ class Game {
         this.inputKeys = [];
         this.currentOrderPlayed = null; // ["drinksize", "small", etc.]
         this.isPaused = null;   
-        this.scoreBoardActive = false;         
+        this.scoreBoardActive = false; 
+        this.timer = null;
+        this.actualTimer = null;        
     };   
 
     //Increment functions
@@ -58,9 +60,17 @@ class Game {
         const showScore = document.createElement('p')
         showScore.innerText = `Score: ${this.score}`
         
+        const showTimer = document.createElement('p')
+        if (this.timer === 10) {
+            showTimer.innerText = `timer: 0:${this.timer}`
+        } else {
+            showTimer.innerText = `timer: 0:0${this.timer}`
+        }
+
         scoreBoard.appendChild(showPhase)
         scoreBoard.appendChild(showLevel)
         scoreBoard.appendChild(showScore)
+        scoreBoard.appendChild(showTimer)
     }
 
     removeScoreBoard() {
@@ -72,12 +82,30 @@ class Game {
         }
     }
 
+    // Timer functions
+    setOrderTime() {
+        this.timer = 10
+    }
+
+    startTimer() {
+        if (this.timer > 0) {
+            this.timer -= 1;
+        } else if (this.timer <= 0 || this.score <= 0 || !this.gameRunning) {
+            clearInterval(this.actualTimer);
+            this.actualTimer = null;
+        }
+    }
+
+    setTimer() {
+        this.actualTimer = setInterval(this.startTimer, 1000)
+    }
+    
+
     // Key Binds
     mainKeyBinds() {
     // Main Key-down events
         window.addEventListener('keydown', e => this.handleUserInput(e));
     };
-
 
 //-------------GAME LOGIC ------------------------------------------------------
 
@@ -85,8 +113,8 @@ class Game {
     gameLoop() {
         console.log("game is still running");
         if (this.gameRunning === true && this.score > 0) {
-            this.removeScoreBoard()
-            this.showScoreBoard()
+            this.removeScoreBoard();
+            this.showScoreBoard();
             requestAnimationFrame(this.gameLoop.bind(this));
         } else if (this.gameRunning === true && this.score <= 0) {
             console.log("you lost, dude");
@@ -100,7 +128,6 @@ class Game {
         this.createOrders();
         this.currentOrderPlayed = gameUtils.dequeue(this.currentOrder);
         gameUtils.printOrder(this.currentOrderPlayed);
-        debugger
         this.gameLoop();
     };
 
@@ -109,23 +136,25 @@ class Game {
         this.resetStats();
         const bodyTag = document.querySelector('body');
         bodyTag.removeAttribute('id');
+        gameUtils.removeOrderComponents();
+        this.removeScoreBoard();
     };
 
     // Pause and Resume Game;
     togglePause() { 
         const bodyTag = document.querySelector('body');
-        if (!this.gameRunning) {
+        if (!this.gameRunning) {            // unpause
             this.gameRunning = true
             bodyTag.removeAttribute('id');
             this.isPaused = false;
-        } else {
+        } else {                            // pause
             this.gameRunning = false
             bodyTag.setAttribute('id', 'game-lost');
             this.isPaused = true;
+            this.setTimer();
         };
     };
 
-    // Reset Stats
     resetStats() {
         this.level = 1,
         this.phase = 1,
@@ -136,9 +165,11 @@ class Game {
         this.inputKeys = [];
         this.currentOrderPlayed = null;
         this.isPaused = null;
+        this.timer = null;
     }
     
-    // Making order
+
+    // Making the full order list every level
     createOrders() {
         const newOrder = new Order(this.level, this.phase);
         this.currentOrder = newOrder.generateRandomOrders();
@@ -150,6 +181,8 @@ class Game {
             if (e.code === "Space" && this.isPaused === null) { // Refactor!
                 console.log("start game")                                                // "Press Space to start/unpause the game"                                                                
                 this.startGame();                               // startGame;
+                this.setOrderTime();
+                this.setTimer();
             } else if (e.code === "KeyP") {
                 console.log("unpause")
                 this.togglePause();
@@ -164,19 +197,20 @@ class Game {
                 this.togglePause(); 
             } else if (Object.keys(Order.drinkDictionary).includes(e.code)) {
                 this.inputKeys.push(e.code);    // PUSHES KEYCODE INTO INPUTKEYS ARRAY
-                // debugger
+      
                 if (!gameUtils.orderComparer(this.currentOrderPlayed, this.inputKeys)) {   
 
                     this.decrementScore();
                     this.inputKeys = [];
                     gameUtils.removeOrderComponents();
                     gameUtils.printOrder(this.currentOrderPlayed);
-
+                    
                 } else if ((gameUtils.orderComparer(this.currentOrderPlayed, this.inputKeys)) && this.inputKeys.length === this.currentOrderPlayed.length) {    
                     // ^ if compared arrays are the same, and key input and COP length are the same => move on to next array
                     this.incrementScore();               // increment score bc we put in the right key input.
-
+                    this.setOrderTime()
                     if (this.currentOrder.length !== 0) {      // if your current level's full order is not done. // move on to the next array.
+                        this.inputKeys = [];
                         gameUtils.removeOrderComponents();
                         this.currentOrderPlayed = gameUtils.dequeue(this.currentOrder);
                         gameUtils.printOrder(this.currentOrderPlayed);
@@ -184,15 +218,14 @@ class Game {
                         // ADD GREENS/ ANIMATION
 
                     } else {                             // if your current level's full order is done. // move on to the next level
-
-                        this.resetMultiplier();
-                        gameUtils.removeOrderComponents();
-                        this.incrementCurrentLevel();
+                        this.inputKeys = [];
                         this.createOrders();
+                        this.resetMultiplier();
+                        this.incrementCurrentLevel();
+                        gameUtils.removeOrderComponents();
                         this.currentOrderPlayed = gameUtils.dequeue(this.currentOrder);
-                        debugger
                         gameUtils.printOrder(this.currentOrderPlayed);
-
+                        
                         // GREENS / ANIMATION
                     };
                 } else if ((gameUtils.orderComparer(this.currentOrderPlayed, this.inputKeys)) && this.inputKeys.length !== this.currentOrderPlayed.length) {
@@ -203,7 +236,7 @@ class Game {
                     gameUtils.printOrder(this.currentOrderPlayed);
                     gameUtils.addGreensBack(this.inputKeys);
                 };
-                console.log(e.code)
+                // console.log(e.code)
             } else {
                 console.log("I N V A L I D K E Y P R E S S");
             };

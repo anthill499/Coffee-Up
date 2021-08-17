@@ -21,7 +21,7 @@ class Order {
     // Generates a 2D array of key-bindings(orders) based on current game's level and phase.
     generateRandomOrders() {                   
         const clevel = this.cl;
-        const cphase = this.cp;
+        const cphase = (this.cp === 1) ? this.cp : Math.ceil(this.cp / 2);
         const finalOrderArray = [];
         
         for (let i = 0; i < clevel; i++) { 

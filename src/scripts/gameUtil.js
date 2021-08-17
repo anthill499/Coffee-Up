@@ -59,7 +59,7 @@ function addGreensBack(keyInputsArray) {
     const orderList = document.getElementById('orders')
     for (let i = 0; i < keyInputsArray.length; i++) {
         checkOffOrder(orderList.childNodes[i + 1]);
-    }
+    };
 };
 
 export { 
