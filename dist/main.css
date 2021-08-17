@@ -2,13 +2,18 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/assets/stylesheets/index.css ***!
   \*******************************************************************************************************************************************************/
 /* losing screen possibly */
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 @font-face {
   font-family: "silkScreen";
   src: url(e2940cc1c6ebae46bc13.woff) format("woff");
 }
 * {
   font-family: "silkScreen";
-  font-size: 35px;
+  font-size: 37px;
 }
 
 #game-lost {
@@ -20,8 +25,8 @@
   color: azure;
   position: relative;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-  z-index: 2;
-  transform: translate(750px, 40px);
+  z-index: 9999 !important;
+  transform: translate(750px, 85px);
   filter: brightness(120%);
   padding: 0px;
   width: 100%;
@@ -34,12 +39,11 @@
 }
 
 #coffeeuptitle {
-  position: relative;
-  z-index: 9998 !important;
+  position: absolute;
+  z-index: 9998;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  top: 15px;
+  top: 30px;
+  left: 35%;
   filter: brightness(120%);
 }
 

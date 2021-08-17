@@ -44,7 +44,7 @@ function printOrder(orderArray) {
 };
 
 function orderComparer(shownOrder, keyInputs) {
-    return (JSON.stringify(keyInputs) === JSON.stringify(shownOrder.slice(0, keyInputs.length))) ? true : false
+    return (JSON.stringify(keyInputs) === JSON.stringify(shownOrder.slice(0, keyInputs.length)))
 };
 
 function dequeue(orderList) {
@@ -55,9 +55,12 @@ function dequeue(orderList) {
     }
 };
 
-function sayHi() {  // test exports
-    console.log("hi")
-}
+function addGreensBack(keyInputsArray) {
+    const orderList = document.getElementById('orders')
+    for (let i = 1; i < keyInputsArray.length; i++) {
+        checkOffOrder(orderList.childNodes[i]);
+    }
+};
 
 export { 
     dequeue, 
@@ -68,5 +71,6 @@ export {
     hideOrder, 
     uncheckOrder, 
     unhideOrder,
-    sayHi 
+    addGreensBack,
+    checkOffOrder 
 }

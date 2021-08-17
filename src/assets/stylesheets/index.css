@@ -1,4 +1,9 @@
 /* losing screen possibly */
+html{
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 @font-face {
     font-family: 'silkScreen';
     src: url("../fonts/silkscreen_normal_macroman/slkscr-webfont.woff") format("woff");
@@ -6,7 +11,8 @@
 
 * {
     font-family: 'silkScreen';
-    font-size: 35px;
+    font-size: 37px;
+    
 }
 
 #game-lost {
@@ -14,18 +20,16 @@
     opacity: 0.8;
 }
 
-
-
 #orders {
     color: azure;
     position: relative;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    z-index: 2;
-    transform: translate(750px, 40px);
+    z-index: 9999 !important;
+    transform: translate(750px, 85px);
     filter: brightness(120%);
     padding: 0px; 
     width: 100%;
-}
+};
 
 .checked-off {
     color: green;
@@ -34,12 +38,11 @@
 }
 
 #coffeeuptitle {
-    position: relative;
-    z-index: 9998 !important;
+    position: absolute;
+    z-index: 9998;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    top: 15px;
+    top: 30px;
+    left: 35%;
     filter: brightness(120%);
 }
 

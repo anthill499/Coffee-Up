@@ -90,7 +90,7 @@ class Order {
         "KeyZ": "Milk",         // Topping 
         "Digit1": "Hot",      // Temperature: Hot
         "Digit2": "Cold"      // Temperature: Cold
-    }
+    };
 };
 
 export default Order;
