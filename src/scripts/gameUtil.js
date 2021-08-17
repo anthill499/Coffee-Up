@@ -38,7 +38,7 @@ function printOrder(orderArray) {
     orderDiv.appendChild(orderHeader)
     for (let i = 0; i < orderArray.length; i++) {
         const orderPart = document.createElement('p')
-        orderPart.innerText = `${Order.drinkDictionary[orderArray[i]]}`
+        orderPart.innerText = `    ${Order.drinkDictionary[orderArray[i]]}`
         orderDiv.appendChild(orderPart)
     };
 };
@@ -57,8 +57,8 @@ function dequeue(orderList) {
 
 function addGreensBack(keyInputsArray) {
     const orderList = document.getElementById('orders')
-    for (let i = 1; i < keyInputsArray.length; i++) {
-        checkOffOrder(orderList.childNodes[i]);
+    for (let i = 0; i < keyInputsArray.length; i++) {
+        checkOffOrder(orderList.childNodes[i + 1]);
     }
 };
 

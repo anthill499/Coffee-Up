@@ -20,8 +20,16 @@ html{
     opacity: 0.8;
 }
 
+#scoreboard-div {
+    position: absolute;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    color: peru;
+    background-blend-mode: exclusion;
+}
+
+
 #orders {
-    color: azure;
+    color: white;
     position: relative;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     z-index: 9999 !important;

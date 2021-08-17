@@ -84,10 +84,10 @@ class Order {
         "KeyA": "Regular Coffee",
         "KeyS": "Cold Brew",
         "KeyD": "Latte",
-        "KeyF": "Cap",    
+        "KeyF": "Cappucino",    
         "KeyZ": "Tapioca",
         "KeyX": "Sugar",        // Topping: Sugar
-        "KeyZ": "Milk",         // Topping 
+        "KeyC": "Milk",         // Topping 
         "Digit1": "Hot",      // Temperature: Hot
         "Digit2": "Cold"      // Temperature: Cold
     };
