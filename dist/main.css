@@ -6,14 +6,14 @@
   font-family: "silkScreen";
   src: url(e2940cc1c6ebae46bc13.woff) format("woff");
 }
-#game-lost {
-  mix-blend-mode: luminosity;
-  opacity: 0.8;
-}
-
 * {
   font-family: "silkScreen";
   font-size: 35px;
+}
+
+#game-lost {
+  mix-blend-mode: luminosity;
+  opacity: 0.8;
 }
 
 #orders {
@@ -21,7 +21,7 @@
   position: relative;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   z-index: 2;
-  transform: translate(750px, 80px);
+  transform: translate(750px, 40px);
   filter: brightness(120%);
   padding: 0px;
   width: 100%;

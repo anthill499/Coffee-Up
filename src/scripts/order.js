@@ -26,18 +26,18 @@ class Order {
         
         for (let i = 0; i < clevel; i++) { 
             const orderArray = [];
-            orderArray.push(Order.leftKey)
+            orderArray.push(Order.categoryKeys["leftKey"])
             orderArray.push(this.drinkSizesKeyBindings[this.generateRandomIndex(this.drinkSizes)]);
 
-            orderArray.push(Order.rightKey)
+            orderArray.push(Order.categoryKeys["rightKey"])
             orderArray.push(this.coffeeTypesKeyBindings[this.generateRandomIndex(this.coffeeTypes)]);
 
             for (let j = 0; j < cphase; j++) {
-                orderArray.push(Order.rightKey)
+                orderArray.push(Order.categoryKeys["upKey"])
                 orderArray.push(this.toppingsKeyBindings[this.generateRandomIndex(this.toppings)]);
             }
 
-            orderArray.push(Order.downKey)
+            orderArray.push(Order.categoryKeys["downKey"])
             orderArray.push(this.temperatureKeyBindings[this.generateRandomIndex(this.temperature)]);
             finalOrderArray.push(orderArray)
         }
@@ -45,7 +45,7 @@ class Order {
     };
 
     generateRandomIndex(list) {
-        return Math.floor(Math.random() * (list.length - 0.1));
+        return Math.floor(Math.random() * (list.length));
     };
 
     // CATEGORY KEYS
@@ -74,6 +74,10 @@ class Order {
 
     // event.Code corresponding to their String values
     static drinkDictionary = {
+        "ArrowLeft": "Drink Size",
+        "ArrowRight": "Coffee Type",
+        "ArrowUp": "Toppings",
+        "ArrowDown": "Temperature",
         "KeyQ": "Small",       
         "KeyW": "Medium",
         "KeyE": "Large",      
