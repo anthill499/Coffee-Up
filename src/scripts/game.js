@@ -85,7 +85,7 @@ class Game {
     // Timer functions
 
     setOrderTime() {
-        this.timer = 3
+        this.timer = 12;
     }
 
     timeClock() {
