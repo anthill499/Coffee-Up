@@ -143,12 +143,19 @@ class Game {
     // Pause and Resume Game;
     togglePause() { 
         const bodyTag = document.querySelector('body');
-        if (!this.gameRunning) {            // unpause
-            this.gameRunning = true;
+        if (!this.gameRunning) {            
+            gameUtils.removePauseScreen()
+            this.gameRunning = true;        // unpause
             bodyTag.removeAttribute('id');
             this.isPaused = false;
+            this.showScoreBoard()
+            gameUtils.printOrder(this.currentOrderPlayed)
+            gameUtils.addGreensBack(this.inputKeys)
             this.setTimer();
         } else {                            // pause
+            gameUtils.showPauseScreen()
+            this.removeScoreBoard()
+            gameUtils.removeOrderComponents()
             this.gameRunning = false;
             bodyTag.setAttribute('id', 'game-lost');
             this.isPaused = true;

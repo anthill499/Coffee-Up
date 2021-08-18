@@ -62,6 +62,15 @@ function addGreensBack(keyInputsArray) {
     };
 };
 
+function removePauseScreen() {
+    const pauseDiv = document.getElementById('pause');
+    pauseDiv.setAttribute('class', 'hidden')
+}
+
+function showPauseScreen() {
+    const pauseDiv = document.getElementById('pause');
+    pauseDiv.removeAttribute('class')
+}
 
 export { 
     dequeue, 
@@ -74,4 +83,6 @@ export {
     unhideOrder,
     addGreensBack,
     checkOffOrder,
+    showPauseScreen,
+    removePauseScreen
 }
