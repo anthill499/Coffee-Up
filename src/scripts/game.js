@@ -16,7 +16,7 @@ class Game {
         this.isPaused = null;   
         this.scoreBoardActive = false;  
         this.timer = null;              // Timer in seconds
-        // this.actualTimer = null;        // Actual Timer
+        this.actualTimer = null;        // Actual Timer
     };   
 
     //Increment functions
@@ -83,13 +83,12 @@ class Game {
     }
 
     // Timer functions
-
     setOrderTime() {
         this.timer = 12;
     }
 
     timeClock() {
-        if (this.timer > 0 && this.gameRunning) {
+        if (this.timer > 0 && this.gameRunning && !this.isPaused) {
             this.timer -= 1;
         } else if (this.timer < 1 || this.score <= 0) {
             // this.gameRunning = false;
@@ -98,7 +97,7 @@ class Game {
     }
 
     setTimer() {
-        setInterval(this.timeClock.bind(this), 1000)
+        this.actualTimer = setInterval(this.timeClock.bind(this), 1000)
     };
     
     // Key Binds
@@ -123,6 +122,8 @@ class Game {
 
     // Start the game;
     startGame() {
+        const bodyTag = document.querySelector('body');
+        bodyTag.removeAttribute('id');
         this.gameRunning = true;
         this.createOrders();
         this.currentOrderPlayed = gameUtils.dequeue(this.currentOrder);
@@ -143,14 +144,15 @@ class Game {
     togglePause() { 
         const bodyTag = document.querySelector('body');
         if (!this.gameRunning) {            // unpause
-            this.gameRunning = true
+            this.gameRunning = true;
             bodyTag.removeAttribute('id');
             this.isPaused = false;
             this.setTimer();
         } else {                            // pause
-            this.gameRunning = false
+            this.gameRunning = false;
             bodyTag.setAttribute('id', 'game-lost');
             this.isPaused = true;
+            clearInterval(this.actualTimer);
         };
     };
 
@@ -181,7 +183,7 @@ class Game {
                 this.startGame();       
                 this.setOrderTime();    // HERE
                 this.setTimer();        // HERE
-            } else if (e.code === "KeyP") {
+            } else if (e.code === "KeyP" && this.isPaused) {
                 console.log("unpause")
                 this.togglePause();
                 this.gameLoop();

@@ -16,7 +16,9 @@ html{
 
 #game-lost {
     mix-blend-mode: luminosity;
-    opacity: 0.8;
+    opacity: 120.0;
+    /* position: inherit;
+    filter: brightness(50%); */
 }
 
 #scoreboard-div {
@@ -30,7 +32,7 @@ html{
     color: white;
     position: relative;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    z-index: 9999 !important;
+    z-index: 3;
     transform: translate(750px, 85px);
     filter: brightness(120%);
     padding: 0px; 
@@ -48,7 +50,7 @@ html{
     z-index: 9998;
     display: block;
     top: 30px;
-    left: 35%;
+    left: 34%;
     filter: brightness(120%);
 }
 

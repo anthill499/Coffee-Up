@@ -62,6 +62,7 @@ function addGreensBack(keyInputsArray) {
     };
 };
 
+
 export { 
     dequeue, 
     orderComparer, 
@@ -72,5 +73,5 @@ export {
     uncheckOrder, 
     unhideOrder,
     addGreensBack,
-    checkOffOrder 
+    checkOffOrder,
 }
