@@ -21,18 +21,41 @@ html {
 
 #game-lost {
   mix-blend-mode: luminosity;
-  filter: brightness(50%);
 }
 
 .hidden {
   display: none;
 }
 
+#controls {
+  position: absolute;
+  font-size: 26px;
+  transform: translate(330.5%, 23%);
+  font-weight: 1000;
+  color: orange;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+li {
+  list-style: none;
+}
+
+#gameover {
+  font-size: 40px;
+  position: absolute;
+  transform: translate(60%, 210%);
+  z-index: 6 !important;
+  text-align: center;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  color: red;
+  gap: 50%;
+}
+
 #pause {
   font-size: 45px;
   position: absolute;
-  transform: translate(85%, 180%);
-  z-index: 6 !important;
+  transform: translate(85%, 120%);
+  z-index: 7 !important;
   text-align: center;
   text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
 }
@@ -100,7 +123,7 @@ canvas {
   filter: invert(100%);
   display: flex;
   gap: 60px;
-  transform: translate(82.5%, 900.5%);
+  transform: translate(80%, 900.5%);
 }
 
 #github:hover {

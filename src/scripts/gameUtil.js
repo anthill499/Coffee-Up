@@ -1,5 +1,6 @@
 import Order from "./order"
 
+
 function hideOrder() {   // id="hide-order"
     const orderDiv = document.getElementById('#orders')
     orderDiv.setAttribute('id', 'hide-order')
@@ -72,6 +73,22 @@ function showPauseScreen() {
     pauseDiv.removeAttribute('class')
 }
 
+function removeGOScreen() {
+    const gameOver = document.getElementById('gameover');
+    gameOver.setAttribute('class', 'hidden')
+}
+
+function showGOScreen() {
+    const gameOver = document.getElementById('gameover');
+    gameOver.removeAttribute('class')
+}
+
+// function pressedKey(e) {
+//     if (Object.keys(Order.drinkDictionary).includes(e.code)) {
+        
+//     }
+// }
+
 export { 
     dequeue, 
     orderComparer, 
@@ -84,5 +101,7 @@ export {
     addGreensBack,
     checkOffOrder,
     showPauseScreen,
-    removePauseScreen
+    removePauseScreen,
+    showGOScreen,
+    removeGOScreen
 }

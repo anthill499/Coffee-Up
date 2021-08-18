@@ -84,7 +84,7 @@ class Game {
 
     // Timer functions
     setOrderTime() {
-        this.timer = 12;
+        this.timer = 15;
     }
 
     timeClock() {
@@ -124,6 +124,7 @@ class Game {
     startGame() {
         const bodyTag = document.querySelector('body');
         bodyTag.removeAttribute('id');
+        gameUtils.removeGOScreen();
         this.gameRunning = true;
         this.createOrders();
         this.currentOrderPlayed = gameUtils.dequeue(this.currentOrder);
@@ -138,6 +139,8 @@ class Game {
         bodyTag.setAttribute('id', 'game-lost');
         gameUtils.removeOrderComponents();
         this.removeScoreBoard();
+        gameUtils.showGOScreen();
+        clearInterval(this.actualTimer);
     };
 
     // Pause and Resume Game;
@@ -194,8 +197,9 @@ class Game {
                 console.log("unpause")
                 this.togglePause();
                 this.gameLoop();
-            } else if (e.code === "Digit0") {
+            } else if (e.code === "Digit0" && this.isPaused) {
                 this.stopGame();
+                gameUtils.removePauseScreen();
             };
         } else {                                                   
             if (e.code === "KeyP" && this.isPaused !== true) {   
