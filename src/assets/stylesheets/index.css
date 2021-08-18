@@ -11,7 +11,7 @@ html{
 
 * {
     font-family: 'silkScreen';
-    font-size: 37px;
+    font-size: 28px;
 }
 
 #game-lost {
@@ -33,7 +33,7 @@ html{
     position: relative;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     z-index: 3;
-    transform: translate(750px, 85px);
+    transform: translate(745px, 165px);
     filter: brightness(120%);
     padding: 0px; 
     width: 100%;
@@ -75,6 +75,7 @@ canvas {
     z-index: 1;
     border: 3px solid black;
     border-radius: 12px;
+    zoom: 75%;
 }
 
 
