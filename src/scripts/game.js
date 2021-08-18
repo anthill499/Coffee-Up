@@ -25,7 +25,7 @@ class Game {
         this.multiplier = 1;
         if (this.level % 7 === 1 && this.level !== 1) { this.incrementPhase(); }
     }
-
+    
     incrementMultiplier() {
         this.multiplier += 1
     }
