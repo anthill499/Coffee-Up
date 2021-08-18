@@ -40,7 +40,7 @@ Game Difficulty is comprised of:
 1) Phases and Days of the week
 
     -  For example, ```Phase 1``` represents the "grand opening" week, consisting of levels of ```1-7```
-    -  As level passes, more customers come in
+    -  As level passes, more orders come in
     -  As each phase passes, more drink combinations are created as your business "grows"
 
 
@@ -50,7 +50,7 @@ Game Score is determined by:
 
 2) Accumulated points
 
-3) Multiplier (increases based on how many subsequent customers leave)
+3) Multiplier (increases based on how many wrong orders occured during the level)
 
 
 In addition,  ***Coffee-Up!*** will include:

@@ -194,8 +194,8 @@ li {
     z-index: 4500;
     display: inline-block;
     height: 130px;
-    transform: translate(38%, 7.5%);
-    filter: brightness(160%);
+    transform: translate(50%, 7.5%);
+    /* filter: brightness(160%); */
 }
 
 .background {
@@ -225,7 +225,7 @@ canvas {
     filter: invert(100%);
     display: flex;
     gap: 60px;
-    transform: translate(80%, 900.5%);
+    transform: translate(78%, 747%);
 }
 
 #github:hover {
