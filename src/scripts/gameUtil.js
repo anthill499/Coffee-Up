@@ -83,11 +83,25 @@ function showGOScreen() {
     gameOver.removeAttribute('class')
 }
 
-// function pressedKey(e) {
-//     if (Object.keys(Order.drinkDictionary).includes(e.code)) {
-        
-//     }
-// }
+function removeFilter() {
+    const bodyTag = document.querySelector('body');
+    bodyTag.removeAttribute('id');
+}
+
+function addFilter() {
+    const bodyTag = document.querySelector('body');
+    bodyTag.removeAttribute('id', 'game-lost');
+}
+
+function removeStartScreen() {
+    const startScreen = document.getElementById('startscreen');
+    startScreen.setAttribute('class', 'hidden')
+}
+
+function showStartScreen() {
+    const startScreen = document.getElementById('startscreen');
+    startScreen.removeAttribute('class')
+}
 
 export { 
     dequeue, 
@@ -103,5 +117,9 @@ export {
     showPauseScreen,
     removePauseScreen,
     showGOScreen,
-    removeGOScreen
+    removeGOScreen,
+    removeFilter,
+    addFilter,
+    removeStartScreen,
+    showStartScreen
 }

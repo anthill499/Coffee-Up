@@ -84,7 +84,7 @@ class Game {
 
     // Timer functions
     setOrderTime() {
-        this.timer = 15;
+        this.timer = (this.phase > 1) ? 10 : 15
     }
 
     timeClock() {
@@ -94,7 +94,7 @@ class Game {
             // this.gameRunning = false;
             this.stopGame();
         };
-    }
+    };
 
     setTimer() {
         this.actualTimer = setInterval(this.timeClock.bind(this), 1000)
@@ -122,9 +122,9 @@ class Game {
 
     // Start the game;
     startGame() {
-        const bodyTag = document.querySelector('body');
-        bodyTag.removeAttribute('id');
+        gameUtils.removeFilter();
         gameUtils.removeGOScreen();
+        gameUtils.removeStartScreen();
         this.gameRunning = true;
         this.createOrders();
         this.currentOrderPlayed = gameUtils.dequeue(this.currentOrder);
@@ -135,8 +135,6 @@ class Game {
     // Stop the game;
     stopGame() {
         this.resetStats();
-        const bodyTag = document.querySelector('body');
-        bodyTag.setAttribute('id', 'game-lost');
         gameUtils.removeOrderComponents();
         this.removeScoreBoard();
         gameUtils.showGOScreen();
@@ -188,18 +186,19 @@ class Game {
     // event handler
     handleUserInput(e) {
         if (!this.gameRunning) {                                
-            if (e.code === "Space" && this.isPaused === null) { 
-                console.log("start game")                                                                                                             
+            if (e.code === "Space" && this.isPaused === null) {                                                                                                             
                 this.startGame();       
                 this.setOrderTime();    // HERE
                 this.setTimer();        // HERE
             } else if (e.code === "KeyP" && this.isPaused) {
-                console.log("unpause")
                 this.togglePause();
                 this.gameLoop();
             } else if (e.code === "Digit0" && this.isPaused) {
                 this.stopGame();
                 gameUtils.removePauseScreen();
+                gameUtils.removeFilter();
+                gameUtils.removeGOScreen();
+                gameUtils.showStartScreen();
             };
         } else {                                                   
             if (e.code === "KeyP" && this.isPaused !== true) {   

@@ -8,5 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.width = 900;
     canvas.height = 700;
     const newGame = new Game(ctx);
+    
 });
 

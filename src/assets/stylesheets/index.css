@@ -16,6 +16,19 @@ html{
     font-family: 'silkScreen';
 }
 
+
+#startscreen {
+    /* position: absolute; */
+    z-index: 9;
+    font-size: 50px;
+  /* Center vertically and horizontally */
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    margin: -25px 0 0 -25px;
+    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white; 
+}
+
 #game-lost {
     mix-blend-mode: luminosity;
 }
@@ -40,9 +53,9 @@ li {
     font-size: 40px;
     position: absolute;
     transform: translate(60%, 210%);
-    z-index: 6 !important;
+    z-index: 8;
     text-align: center;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; 
+    text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black; 
     color: red;
     gap: 50%;
 }
@@ -126,5 +139,20 @@ canvas {
     filter: brightness(10%);
 }
 
-
+footer {
+    /* text-align: center;
+    vertical-align: bottom; */
+    position:absolute;
+    /* width:300px;
+    height:300px; */
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    color: papayawhip;
+    bottom:30px;
+    right:25%;
+    left:40%;
+    margin-left:-150px;
+    text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+}
 
