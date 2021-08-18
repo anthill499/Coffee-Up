@@ -1,13 +1,7 @@
-/* losing screen possibly */
-html{
-    max-width: 100%;
-    overflow-x: hidden;
-}
 
-h1 {
-    text-align: center;
-    font-size: 60px;
-}
+
+/* losing screen possibly */
+
 /* body {
     display: flex;
     flex-direction: column;
