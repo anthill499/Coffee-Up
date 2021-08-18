@@ -19,13 +19,12 @@
     <div id="orders"></div>
     <div id="pause" class="hidden">GAME PAUSED
         <p>Press P to Unpause</p>
-        <p>Press 0 to restart</p>
+        <p>Press zero to restart</p>
     </div>
-
-    <div id="gameover" class="hidden">GAME OVER
+    <div id="gameover" class="hidden">
+        <h1>GAME OVER</h1>
         <p>Press space to play again</p>
     </div>
-
     <div id="controls">
         <p>CATEGORIES</p>
             <ul>
@@ -54,12 +53,37 @@
     <main>
         <canvas id="coffee-canvas"></canvas> 
     </main> 
-
     <div class="navlinks">
         <a href="https://github.com/anthill499"><img src="./src/assets/images/githublogo.png" width="75px" height="75px" id="github"></a>
         <a href="https://www.linkedin.com/in/anthonyhuang499/"><img src="./src/assets/images/linkedinlogo.png" width="75px"
                 height="75px"> </a>
     </div>
+
+    <button id="instructions">Instructions</button>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="close">&times;</div>
+            <h1 id="htp">HOW TO PLAY</h1>
+            <p>It is the year 2021. You are the founder of coffee up roasters! 
+                your job is to fulfill orders from customers by pressing 
+                the listed category keys followed by their INGREDIENTS keys as shown on the 
+                legend to the right.</p>
+            <p>As the game goes on, the number of orders per level increases.</p>
+            <p>You are given 15 seconds per single order, and when you press a 
+                wrong key, you will need to restart the whole order. If either your 
+                timer or score (sales) falls below zero, you lose.
+            </p>
+            <ul>Key binds
+                <li>P = pause/unpause</li>
+                <li>zero = quit when paused</li>
+                <li>Space = starts game/restart when game is over</li>
+            </ul>
+
+            <p id="youngceo">Good Luck, YOUNG CEO, happy roasting!</p>
+        </div>
+    </div>
+
 </body>
 
 <footer>Song: Galactic Strings by Lostifi | email: anthill499@gmail.com</footer>

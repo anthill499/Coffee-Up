@@ -58,7 +58,7 @@ class Game {
         showLevel.innerText = `Level: ${this.level}`
 
         const showScore = document.createElement('p')
-        showScore.innerText = `Score: ${this.score}`
+        showScore.innerText = `Sales: ${this.score}`
         
         const showTimer = document.createElement('p')
         if (this.timer >= 10) {
@@ -80,12 +80,12 @@ class Game {
                 scoreBoard.removeChild(scoreBoard.childNodes[i]);
             }
         }
-    }
+    };
 
     // Timer functions
     setOrderTime() {
         this.timer = (this.phase > 1) ? 10 : 15
-    }
+    };
 
     timeClock() {
         if (this.timer > 0 && this.gameRunning && !this.isPaused) {

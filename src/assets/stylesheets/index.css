@@ -3,6 +3,11 @@ html{
     max-width: 100%;
     overflow-x: hidden;
 }
+
+h1 {
+    text-align: center;
+    font-size: 60px;
+}
 /* body {
     display: flex;
     flex-direction: column;
@@ -16,6 +21,88 @@ html{
     font-family: 'silkScreen';
 }
 
+button {
+	outline: 0;
+	-webkit-appearance: none;
+	/* box-sizing: content-box; */
+	display: inline;
+    position: absolute;
+    padding: 15px 32px;
+	background: transparent;
+    color: whitesmoke;
+    font-size: 25px;
+    transform: translate(12.5%, -10%);
+    text-shadow: -2px 0 black, 0 2px black, 4px 0 black, 0 -2px black;
+    border-radius: 10px;
+}
+
+button:hover {
+    border-style: solid;
+    border-color: whitesmoke;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 12;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color:snow;
+    transform: translate(40%, 23%);
+    border: 1px solid #888;
+    font-size: 22px;
+    width: 55%;
+    height: 77.5%;
+    text-align: center;
+    gap: 0px;
+    z-index: 4501;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.modal-content > p {
+    display: block;
+    padding: 10px 10px 10px 10px;
+    border-top: 1px dashed black;
+    border-bottom: 1px dashed peru;
+}
+
+#youngceo {
+    color: peru;
+    text-shadow: -1px 0 black, 0 1px black, 3px 0 black, 0 -1px black; 
+    font-size: 25px;
+}
+
+#htp {
+    color: peru;
+    text-shadow: -2px 0 black, 0 4px black, 7px 0 black, 0 -2px black;  
+}
+
+.close {
+    display: block;
+    position: absolute;
+    color: #aaa;
+    font-size: 50px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-top: 0px;
+    text-align: left;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 #startscreen {
     /* position: absolute; */
@@ -26,7 +113,9 @@ html{
     top: 50%;
     left: 30%;
     margin: -25px 0 0 -25px;
-    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white; 
+    text-shadow: -1px 0 black, 0 4px black, 5px 0 black, 0 -2px black; 
+    filter: brightness(200%);
+    color: white;
 }
 
 #game-lost {
@@ -43,19 +132,20 @@ html{
     transform: translate(330.5%, 23%);
     font-weight: 1000;
     color:orange;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; 
+    text-shadow: -1px 0 black, 0 0.5px white, 6px 0 black, 0 -1px black; 
 }
+
 li {
     list-style: none;
 }   
 
 #gameover {
-    font-size: 40px;
+    font-size: 42.5px;
     position: absolute;
-    transform: translate(60%, 210%);
+    transform: translate(55%, 145%);
     z-index: 8;
     text-align: center;
-    text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black; 
+    text-shadow: -2px 0 black, 0 0.5px white, 6px 0 black, 0 -2px black; 
     color: red;
     gap: 50%;
 }
@@ -63,17 +153,18 @@ li {
 #pause {
     font-size: 45px;
     position: absolute;
-    transform: translate(85%, 120%);
+    transform: translate(70%, 120%);
     z-index: 7 !important;
     text-align: center;
-    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+    text-shadow: -1px 0 black, 0 4px black, 5px 0 black, 0 -2px black; 
+    color:snow;
 }
 
 #scoreboard-div {
     position: absolute;
-    text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+    text-shadow: -1px 0 black, 0 0.5px white, 6px 0 black, 0 -1px black;
     color: orange;
-    transform: translate(18%, 25%);
+    transform: translate(18%, 30%);
     font-size: 45px;
     filter: brightness(120%);
 }
@@ -81,27 +172,27 @@ li {
 #orders {
     color: white;
     position: absolute;
-    text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+    text-shadow: -1px 0 black, 0 2px black, 4px 0 black, 0 -1px black; 
     z-index: 3;
     transform: translate(52.5%, 25%);
     filter: brightness(120%);
     padding: 0px; 
     width: 100%;
-    font-size: 32px
+    font-size: 32px;
+    border: 1px black
 };
 
 .checked-off {
-    color: green;
-    text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
-    filter: brightness(200%);
+    color:lime;
+    text-shadow: -1px 0 black, 0 2px black, 4px 0 black, 0 -1px black;
 }
 
 #coffeeuptitle {
     position: absolute;
-    z-index: 9998;
+    z-index: 4500;
     display: inline-block;
     height: 130px;
-    transform: translate(38%, 10%);
+    transform: translate(38%, 7.5%);
     filter: brightness(160%);
 }
 
@@ -137,14 +228,16 @@ canvas {
 
 #github:hover {
     filter: brightness(10%);
+    opacity: 0.5;
+}
+
+#github:hover {
+    filter: brightness(10%);
+    opacity: 0.5;
 }
 
 footer {
-    /* text-align: center;
-    vertical-align: bottom; */
     position:absolute;
-    /* width:300px;
-    height:300px; */
     font-size: 15px;
     display: flex;
     flex-direction: row;
@@ -153,6 +246,6 @@ footer {
     right:25%;
     left:40%;
     margin-left:-150px;
-    text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+    text-shadow: -1px 0 black, 0 0.5px white, 6px 0 black, 0 -1px black;
 }
 

@@ -8,6 +8,22 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.width = 900;
     canvas.height = 700;
     const newGame = new Game(ctx);
-    
+    const modal = document.getElementById("modal");
+    const button = document.getElementById("instructions");
+    const div = document.querySelector(".close");
+
+    button.addEventListener("click", () => {
+        modal.style.display = "block";
+    })
+
+    div.addEventListener("click", () => {
+        modal.style.display = "none";
+    })
+
+    document.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    })
 });
 
