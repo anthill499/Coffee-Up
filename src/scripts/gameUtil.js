@@ -1,6 +1,5 @@
 import Order from "./order"
 
-
 function hideOrder() {   // id="hide-order"
     const orderDiv = document.getElementById('#orders')
     orderDiv.setAttribute('id', 'hide-order')
@@ -113,6 +112,11 @@ function playGameOverSound() {
     bleep.play()
 }
 
+function playClickSound() {
+    const click = new Audio("src/assets/audio/mouseclick.mp3")
+    click.play()
+}
+
 export { 
     dequeue, 
     orderComparer, 
@@ -133,5 +137,6 @@ export {
     showStartScreen,
     playSound,
     playErrorSound,
-    playGameOverSound
+    playGameOverSound,
+    playClickSound
 }

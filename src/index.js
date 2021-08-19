@@ -1,5 +1,6 @@
 import "../src/assets/stylesheets/index.css";  
 import Game from "./scripts/game";
+import * as gameUtils from "../src/scripts/gameUtil"
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -14,10 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     button.addEventListener("click", () => {
         modal.style.display = "block";
+        gameUtils.playClickSound();
     })
 
     div.addEventListener("click", () => {
         modal.style.display = "none";
+        gameUtils.playClickSound();
     })
 
     document.addEventListener("click", (e) => {
