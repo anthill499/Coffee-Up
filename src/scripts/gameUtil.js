@@ -108,6 +108,11 @@ function playErrorSound() {
     bloop.play()
 }
 
+function playGameOverSound() {
+    const bleep = new Audio("src/assets/audio/gameover.mp3")
+    bleep.play()
+}
+
 export { 
     dequeue, 
     orderComparer, 
@@ -127,5 +132,6 @@ export {
     removeStartScreen,
     showStartScreen,
     playSound,
-    playErrorSound
+    playErrorSound,
+    playGameOverSound
 }

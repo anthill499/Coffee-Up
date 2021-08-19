@@ -153,6 +153,7 @@ class Game {
         gameUtils.removeOrderComponents();
         this.removeScoreBoard();
         gameUtils.showGOScreen();
+        gameUtils.playGameOverSound();
         clearInterval(this.actualTimer);
     };
 
