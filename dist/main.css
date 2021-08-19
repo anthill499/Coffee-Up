@@ -1,23 +1,18 @@
 /*!*******************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/assets/stylesheets/index.css ***!
   \*******************************************************************************************************************************************************/
-/* losing screen possibly */
-/* body {
-    display: flex;
-    flex-direction: column;
-} */
 @font-face {
   font-family: "silkScreen";
   src: url(e2940cc1c6ebae46bc13.woff) format("woff");
 }
 * {
   font-family: "silkScreen";
+  overflow: hidden;
 }
 
 button {
   outline: 0;
   -webkit-appearance: none;
-  /* box-sizing: content-box; */
   display: inline;
   position: absolute;
   padding: 15px 32px;
@@ -139,7 +134,7 @@ li {
 #gameover {
   font-size: 42.5px;
   position: absolute;
-  transform: translate(55%, 145%);
+  transform: translate(55%, 100%);
   z-index: 8;
   text-align: center;
   text-shadow: -2px 0 black, 0 0.5px white, 6px 0 black, 0 -2px black;

@@ -17,6 +17,7 @@ class Game {
         this.scoreBoardActive = false;  
         this.timer = null;              // Timer in seconds
         this.actualTimer = null;        // Actual Timer
+        this.soundPaused = true;
     };   
 
     //Increment functions
@@ -106,6 +107,19 @@ class Game {
         window.addEventListener('keydown', e => this.handleUserInput(e));
     };
 
+    // Sound 
+    turnOnSound() {
+        const airpods = document.getElementById('bangers');
+        this.soundPaused = false;
+        airpods.play();
+    }
+
+    turnOffSound() {
+        const airpods = document.getElementById('bangers');
+        this.soundPaused = true;
+        airpods.pause();
+    }
+
 //-------------GAME LOGIC ------------------------------------------------------
 
     // Start, Game loop;
@@ -129,6 +143,7 @@ class Game {
         this.createOrders();
         this.currentOrderPlayed = gameUtils.dequeue(this.currentOrder);
         gameUtils.printOrder(this.currentOrderPlayed);
+        this.turnOnSound();        
         this.gameLoop();
     };
 
@@ -187,7 +202,7 @@ class Game {
     handleUserInput(e) {
         if (!this.gameRunning) {                                
             if (e.code === "Space" && this.isPaused === null) {                                                                                                             
-                this.startGame();       
+                this.startGame();       // toggles sound already
                 this.setOrderTime();    // HERE
                 this.setTimer();        // HERE
             } else if (e.code === "KeyP" && this.isPaused) {
@@ -199,6 +214,10 @@ class Game {
                 gameUtils.removeFilter();
                 gameUtils.removeGOScreen();
                 gameUtils.showStartScreen();
+            } else if (e.code === "KeyM" && !this.soundPaused) {
+                this.turnOffSound();
+            } else if (e.code === "KeyM" && this.soundPaused) {
+                this.turnOnSound();
             };
         } else {                                                   
             if (e.code === "KeyP" && this.isPaused !== true) {   
@@ -236,8 +255,10 @@ class Game {
                     gameUtils.printOrder(this.currentOrderPlayed);
                     gameUtils.addGreensBack(this.inputKeys);
                 };
-            } else {
-                console.log("I N V A L I D K E Y P R E S S");
+            } else if (e.code === "KeyM" && !this.soundPaused) {
+                this.turnOffSound();
+            } else if (e.code === "KeyM" && this.soundPaused) {
+                this.turnOnSound();
             };
         };
     };
