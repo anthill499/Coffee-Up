@@ -19,7 +19,7 @@ button {
   background: transparent;
   color: whitesmoke;
   font-size: 25px;
-  transform: translate(12.5%, -10%);
+  transform: translate(12.5%, 10%);
   text-shadow: -2px 0 black, 0 2px black, 4px 0 black, 0 -2px black;
   border-radius: 10px;
 }
@@ -215,7 +215,8 @@ canvas {
   filter: invert(100%);
   display: flex;
   gap: 60px;
-  transform: translate(78%, 747%);
+  z-index: 4503;
+  transform: translate(4.5%, 5%);
 }
 
 #github:hover {

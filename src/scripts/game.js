@@ -164,16 +164,16 @@ class Game {
             this.gameRunning = true;        // unpause
             bodyTag.removeAttribute('id');
             this.isPaused = false;
-            this.showScoreBoard()
-            gameUtils.printOrder(this.currentOrderPlayed)
-            gameUtils.addGreensBack(this.inputKeys)
+            this.showScoreBoard();
+            gameUtils.printOrder(this.currentOrderPlayed);
+            gameUtils.addGreensBack(this.inputKeys);
             this.setTimer();
         } else {                            // pause
-            gameUtils.showPauseScreen()
-            this.removeScoreBoard()
-            gameUtils.removeOrderComponents()
-            this.gameRunning = false;
+            gameUtils.showPauseScreen();
             bodyTag.setAttribute('id', 'game-lost');
+            this.removeScoreBoard();
+            gameUtils.removeOrderComponents();
+            this.gameRunning = false;
             this.isPaused = true;
             clearInterval(this.actualTimer);
         };
@@ -221,11 +221,11 @@ class Game {
             };
         } else {                                                   
             if (e.code === "KeyP" && this.isPaused !== true) {   
-                console.log("paused")
                 this.togglePause(); 
             } else if (Object.keys(Order.drinkDictionary).includes(e.code)) {
                 this.inputKeys.push(e.code);                    // PUSHES KEYCODE INTO INPUTKEYS ARRAY
                 if (!gameUtils.orderComparer(this.currentOrderPlayed, this.inputKeys)) {   
+                    gameUtils.playErrorSound();
                     this.decrementScore();
                     this.inputKeys = [];
                     gameUtils.removeOrderComponents();
@@ -235,12 +235,14 @@ class Game {
                     this.incrementScore();                     // increment score bc we put in the right key input.
                     this.setOrderTime()     // HEREEEEEEE !!!
                     if (this.currentOrder.length !== 0) {      // if your current level's full order is not done. // move on to the next array.
+                        gameUtils.playSound();
                         this.inputKeys = [];
                         gameUtils.removeOrderComponents();
                         this.currentOrderPlayed = gameUtils.dequeue(this.currentOrder);
                         gameUtils.printOrder(this.currentOrderPlayed);
                         gameUtils.addGreensBack(this.inputKeys);
                     } else {                                   // if your current level's full order is done. // move on to the next level
+                        gameUtils.playSound();
                         this.inputKeys = [];
                         this.createOrders();
                         this.resetMultiplier();

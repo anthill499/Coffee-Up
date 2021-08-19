@@ -88,11 +88,6 @@ function removeFilter() {
     bodyTag.removeAttribute('id');
 }
 
-function addFilter() {
-    const bodyTag = document.querySelector('body');
-    bodyTag.removeAttribute('id', 'game-lost');
-}
-
 function removeStartScreen() {
     const startScreen = document.getElementById('startscreen');
     startScreen.setAttribute('class', 'hidden')
@@ -101,6 +96,16 @@ function removeStartScreen() {
 function showStartScreen() {
     const startScreen = document.getElementById('startscreen');
     startScreen.removeAttribute('class')
+}
+
+function playSound() {
+    const bleep = new Audio("src/assets/audio/select2.mp3")
+    bleep.play()
+}
+
+function playErrorSound() {
+    const bloop = new Audio("src/assets/audio/errorsound.mp3")
+    bloop.play()
 }
 
 export { 
@@ -119,7 +124,8 @@ export {
     showGOScreen,
     removeGOScreen,
     removeFilter,
-    addFilter,
     removeStartScreen,
-    showStartScreen
+    showStartScreen,
+    playSound,
+    playErrorSound
 }
