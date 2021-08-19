@@ -112,6 +112,7 @@ button:hover {
   text-align: center;
   color: darkorange;
   filter: brightness(50%);
+  text-shadow: -1px 0 black, 0 1px white, 5px 0 black, 0 -2px black;
 }
 
 audio {
