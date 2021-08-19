@@ -138,5 +138,5 @@ export {
     playSound,
     playErrorSound,
     playGameOverSound,
-    playClickSound
+    playClickSound,
 }

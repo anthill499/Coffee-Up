@@ -18,6 +18,7 @@ class Game {
         this.timer = null;              // Timer in seconds
         this.actualTimer = null;        // Actual Timer
         this.soundPaused = true;
+        this.myBeatPaused = true;
     };   
 
     //Increment functions
@@ -112,12 +113,27 @@ class Game {
         const airpods = document.getElementById('bangers');
         this.soundPaused = false;
         airpods.play();
+        this.pauseMyBeat();
     }
 
     turnOffSound() {
         const airpods = document.getElementById('bangers');
         this.soundPaused = true;
         airpods.pause();
+        this.pauseMyBeat;
+    }
+
+    playMyBeat() {
+        const myBeat = document.getElementById('mybeat')
+        this.myBeatPaused = false;
+        myBeat.play();
+        this.turnOffSound();
+    }
+
+    pauseMyBeat() {
+        this.myBeatPaused = true;
+        const myBeat = document.getElementById('mybeat')
+        myBeat.pause();
     }
 
 //-------------GAME LOGIC ------------------------------------------------------
@@ -219,6 +235,10 @@ class Game {
                 this.turnOffSound();
             } else if (e.code === "KeyM" && this.soundPaused) {
                 this.turnOnSound();
+            } else if (e.code === "KeyN" && this.myBeatPaused) {
+                this.playMyBeat();
+            } else if (e.code === "KeyN" && !this.myBeatPaused) {
+                this.pauseMyBeat();
             };
         } else {                                                   
             if (e.code === "KeyP" && this.isPaused !== true) {   
@@ -262,6 +282,10 @@ class Game {
                 this.turnOffSound();
             } else if (e.code === "KeyM" && this.soundPaused) {
                 this.turnOnSound();
+            } else if (e.code === "KeyN" && this.myBeatPaused) {
+                this.playMyBeat();
+            } else if (e.code === "KeyN" && !this.myBeatPaused) {
+                this.pauseMyBeat();
             };
         };
     };
