@@ -104,6 +104,14 @@ button:hover {
   text-shadow: -1px 0 black, 0 4px black, 5px 0 black, 0 -2px black;
   filter: brightness(200%);
   color: white;
+  font-style: oblique;
+}
+
+#startscreen p {
+  font-size: 35px;
+  text-align: center;
+  color: darkorange;
+  filter: brightness(50%);
 }
 
 audio {
@@ -140,6 +148,7 @@ li {
   text-shadow: -2px 0 black, 0 0.5px white, 6px 0 black, 0 -2px black;
   color: red;
   gap: 50%;
+  font-style: oblique;
 }
 
 #pause {
@@ -177,6 +186,7 @@ li {
 .checked-off {
   color: lime;
   text-shadow: -1px 0 black, 0 2px black, 4px 0 black, 0 -1px black;
+  font-style: oblique;
 }
 
 #coffeeuptitle {
