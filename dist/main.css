@@ -92,6 +92,10 @@ button:hover {
   cursor: pointer;
 }
 
+footer:hover {
+  font-style: oblique;
+}
+
 #startscreen {
   /* position: absolute; */
   z-index: 9;

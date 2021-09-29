@@ -1,99 +1,130 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-con" href="./src/assets/images/favicon-16x16.png"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-con"
+      href="./src/assets/images/favicon-16x16.png"
+    />
 
-    <link rel="stylesheet" href="./dist/main.css">
+    <link rel="stylesheet" href="./dist/main.css" />
     <title>Coffee Up!</title>
-    
+    <meta property="og:title" content="Coffee Up" />
+    <meta property="og:image" content="coffeeupsplash.png" />
+    <meta
+      property="og:description"
+      content="Coffee-Up! is a game that emulates the start of a coffee business from its grand opening to its normal days! Customers come in and order drinks consisting of a list of ingredients. Your responsibility is to assemble the drink together as more customers come in to the shop."
+    />
+    <meta property="og:url" content="https://anthill499.github.io/Coffee-Up/" />
     <script src="./dist/main.js"></script>
-</head>
+  </head>
 
-<body class="background">
-    <audio src="./src/assets/audio/LostiFi - Galactic Strings.mp3" id="bangers" loop></audio>
+  <body class="background">
+    <audio
+      src="./src/assets/audio/LostiFi - Galactic Strings.mp3"
+      id="bangers"
+      loop
+    ></audio>
     <audio src="./src/assets/audio/Do You.mp3" id="mybeat" loop></audio>
 
-    <img src="src/assets/images/coffeeuptitle3.png" id="coffeeuptitle">
+    <img src="src/assets/images/coffeeuptitle3.png" id="coffeeuptitle" />
     <div id="scoreboard-div"></div>
     <div id="orders"></div>
-    <div id="pause" class="hidden">GAME PAUSED
-        <p>Press P to Unpause</p>
-        <p>Press zero to restart</p>
+    <div id="pause" class="hidden">
+      GAME PAUSED
+      <p>Press P to Unpause</p>
+      <p>Press zero to restart</p>
     </div>
     <div id="gameover" class="hidden">
-        <h1>GAME OVER</h1>
-        <p>Press space to play again</p>
+      <h1>GAME OVER</h1>
+      <p>Press space to play again</p>
     </div>
     <div id="controls">
-        <p>CATEGORIES</p>
-            <ul>
-                <li>left: drink size</li>
-                <li>right: coffee type</li>
-                <li>up: toppings</li>
-                <li>down: temperature</li>
-            </ul>
-        <p>INGREDIENTS</p>
-            <ul>
-                <li>Q: SMALL</li>
-                <li>W: MEDIUM</li>
-                <li>E: LARGE</li>
-                <li>A: REGULAR COFFEE</li>
-                <li>S: COLD BREW</li>
-                <li>D: LATTE</li>
-                <li>F: CAPPUCINO</li>
-                <li>Z: TAPIOCA</li>
-                <li>X: SUGAR</li>
-                <li>C: MILK</li>
-                <li>1: HOT</li>
-                <li>2: COLD</li>
-            </ul>
+      <p>CATEGORIES</p>
+      <ul>
+        <li>left: drink size</li>
+        <li>right: coffee type</li>
+        <li>up: toppings</li>
+        <li>down: temperature</li>
+      </ul>
+      <p>INGREDIENTS</p>
+      <ul>
+        <li>Q: SMALL</li>
+        <li>W: MEDIUM</li>
+        <li>E: LARGE</li>
+        <li>A: REGULAR COFFEE</li>
+        <li>S: COLD BREW</li>
+        <li>D: LATTE</li>
+        <li>F: CAPPUCINO</li>
+        <li>Z: TAPIOCA</li>
+        <li>X: SUGAR</li>
+        <li>C: MILK</li>
+        <li>1: HOT</li>
+        <li>2: COLD</li>
+      </ul>
     </div>
-    <div id="startscreen">press space to start!
-        <p>Please read instructions</p>
+    <div id="startscreen">
+      press space to start!
+      <p>Please read instructions</p>
     </div>
     <main>
-        <canvas id="coffee-canvas"></canvas> 
-    </main> 
+      <canvas id="coffee-canvas"></canvas>
+    </main>
     <div class="navlinks">
-        <a href="https://github.com/anthill499"><img src="./src/assets/images/githublogo.png" width="55px" height="55px" id="github"></a>
-        <a href="https://www.linkedin.com/in/anthonyhuang499/"><img src="./src/assets/images/linkedinlogo.png" width="45px"
-                height="45px" id="linkedin"> </a>
+      <a href="https://github.com/anthill499"
+        ><img
+          src="./src/assets/images/githublogo.png"
+          width="55px"
+          height="55px"
+          id="github"
+      /></a>
+      <a href="https://www.linkedin.com/in/anthonyhuang499/"
+        ><img
+          src="./src/assets/images/linkedinlogo.png"
+          width="45px"
+          height="45px"
+          id="linkedin"
+        />
+      </a>
     </div>
 
     <button id="instructions">Instructions</button>
 
     <div id="modal" class="modal">
-        <div class="modal-content">
-            <div class="close">&times;</div>
-            <h1 id="htp">HOW TO PLAY</h1>
-            <p>It is the year 2021. You are the founder of coffee up roasters! 
-                your job is to fulfill orders from customers by pressing 
-                the listed category keys followed by their INGREDIENTS keys as shown on the 
-                legend to the right.</p>
-            <p>As the game goes on, the number of orders per level increases.</p>
-            <p>You are given 15 seconds per single order, and when you press a 
-                wrong key, you will need to restart the entire order. If either your 
-                timer or score (sales) falls to or below zero, you lose.
-            </p>
-            <ul>Key binds
-                <li>P = pause/unpause</li>
-                <li>zero = quit when paused</li>
-                <li>Space = starts game/restart when game is over</li>
-                <li>M = Play/Pause Audio</li>
-                <li>N = to play/pause one of my beats! no yoink pls</li>
-            </ul>
+      <div class="modal-content">
+        <div class="close">&times;</div>
+        <h1 id="htp">HOW TO PLAY</h1>
+        <p>
+          It is the year 2021. You are the founder of coffee up roasters! your
+          job is to fulfill orders from customers by pressing the listed
+          category keys followed by their INGREDIENTS keys as shown on the
+          legend to the right.
+        </p>
+        <p>As the game goes on, the number of orders per level increases.</p>
+        <p>
+          You are given 15 seconds per single order, and when you press a wrong
+          key, you will need to restart the entire order. If either your timer
+          or score (sales) falls to or below zero, you lose.
+        </p>
+        <ul>
+          Key binds
+          <li>P = pause/unpause</li>
+          <li>zero = quit when paused</li>
+          <li>Space = starts game/restart when game is over</li>
+          <li>M = Play/Pause Audio</li>
+          <li>N = to play/pause one of my beats! no yoink pls</li>
+        </ul>
 
-            <p id="youngceo">Good Luck, YOUNG CEO, happy roasting!</p>
-        </div>
+        <p id="youngceo">Good Luck, YOUNG CEO, happy roasting!</p>
+      </div>
     </div>
+  </body>
 
-</body>
-
-<footer>Song: Galactic Strings by Lostifi | email: anthill499@gmail.com</footer>
+  <footer>
+    Song: Galactic Strings by Lostifi | email: anthill499@gmail.com
+  </footer>
 </html>
-
-

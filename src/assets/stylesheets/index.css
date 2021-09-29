@@ -89,6 +89,9 @@ button:hover {
   text-decoration: none;
   cursor: pointer;
 }
+footer:hover {
+    font-style: oblique;
+}
 
 #startscreen {
     /* position: absolute; */
