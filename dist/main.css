@@ -5,6 +5,12 @@
   font-family: "silkScreen";
   src: url(e2940cc1c6ebae46bc13.woff) format("woff");
 }
+
+html {
+  min-width: 1440px;
+  min-height: 900px;
+}
+
 * {
   font-family: "silkScreen";
   overflow: hidden;
@@ -97,19 +103,23 @@ footer:hover {
 }
 
 #startscreen {
-  z-index: 9;
+  height: 706px;
   font-size: 50px;
-  /* Center vertically and horizontally */
-  position: absolute;
+  position: fixed;
   text-shadow: -1px 0 black, 0 4px black, 5px 0 black, 0 -2px black;
   filter: brightness(200%);
   color: white;
   font-style: oblique;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 1440px;
 }
 
 #startscreen p {
   font-size: 35px;
-  text-align: center;
   color: darkorange;
   filter: brightness(50%);
   text-shadow: -1px 0 black, 0 1px white, 5px 0 black, 0 -2px black;
@@ -205,6 +215,7 @@ li {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 canvas {
@@ -224,9 +235,10 @@ canvas {
 .navlinks {
   filter: invert(100%);
   display: flex;
-  gap: 60px;
+  position: fixed;
+  /* gap: 60px; */
   z-index: 4503;
-  transform: translate(4.5%, 5%);
+  width: 22%;
 }
 
 #github:hover {
