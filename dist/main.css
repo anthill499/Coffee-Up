@@ -5,6 +5,10 @@
   font-family: "silkScreen";
   src: url(e2940cc1c6ebae46bc13.woff) format("woff");
 }
+* {
+  font-family: "silkScreen";
+  overflow: hidden;
+}
 
 html {
   min-width: 1440px;
@@ -210,17 +214,19 @@ li {
 }
 
 .background {
-  background-image: url(900dc59d55430653ed9e.jpeg);
+  background-image: url(5830bab92d696e02b416.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: auto;
+  /* background-repeat: no-repeat; */
 }
 
 canvas {
   display: flex;
   margin: auto;
+  height: 700px;
+  width: 900px;
 }
 
 #coffee-canvas {
@@ -260,6 +266,19 @@ footer {
   text-shadow: -1px 0 black, 0 0.5px white, 6px 0 black, 0 -1px black;
   margin-top: 15px;
 }
+
+@media only screen and (max-width: 1280px) {
+  canvas {
+    width: 800px;
+    height: 600px;
+  }
+
+  #coffeeuptitle {
+    height: 100px;
+    min-width: 630px;
+  }
+}
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
+

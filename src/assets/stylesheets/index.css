@@ -3,6 +3,15 @@
   src: url("../fonts/silkscreen_normal_macroman/slkscr-webfont.woff")
     format("woff");
 }
+* {
+  font-family: "silkScreen";
+  overflow: hidden;
+}
+
+html {
+  min-width: 1440px;
+  min-height: 900px;
+}
 
 * {
   font-family: "silkScreen";
@@ -37,7 +46,7 @@ button:hover {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
+  background-color: black;
   background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -90,32 +99,34 @@ button:hover {
   text-decoration: none;
   cursor: pointer;
 }
+
 footer:hover {
   font-style: oblique;
 }
 
 #startscreen {
-  /* position: absolute; */
-  z-index: 9;
+  height: 706px;
   font-size: 50px;
-  /* Center vertically and horizontally */
-  position: absolute;
-  top: 50%;
-  left: 30%;
-  margin: -25px 0 0 -25px;
+  position: fixed;
   text-shadow: -1px 0 black, 0 4px black, 5px 0 black, 0 -2px black;
   filter: brightness(200%);
   color: white;
   font-style: oblique;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 1440px;
 }
 
 #startscreen p {
   font-size: 35px;
-  text-align: center;
   color: darkorange;
   filter: brightness(50%);
   text-shadow: -1px 0 black, 0 1px white, 5px 0 black, 0 -2px black;
 }
+
 audio {
   position: absolute;
 }
@@ -129,9 +140,7 @@ audio {
 }
 
 #controls {
-  position: absolute;
   font-size: 26px;
-  transform: translate(330.5%, 23%);
   font-weight: 1000;
   color: snow;
   text-shadow: -1px 0 black, 0 0.5px white, 6px 0 black, 0 -1px black;
@@ -164,7 +173,7 @@ li {
 }
 
 #scoreboard-div {
-  position: absolute;
+  /* position: absolute; */
   text-shadow: -1px 0 black, 0 0.5px white, 6px 0 black, 0 -1px black;
   color: orange;
   transform: translate(18%, 30%);
@@ -192,43 +201,48 @@ li {
 }
 
 #coffeeuptitle {
-  position: absolute;
-  z-index: 4500;
-  display: inline-block;
   height: 130px;
-  transform: translate(50%, 7.5%);
-  /* filter: brightness(160%); */
+  min-width: 730px;
+  margin: 10px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
 }
 
 .background {
-  background-image: url("/src/assets/images/aethesticcafe.jpeg");
-  background-repeat: no-repeat;
-  background-size: 120%;
-  background-position: center center;
+  background-image: url("../images/lofibg.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: auto;
+  /* background-repeat: no-repeat; */
 }
 
 canvas {
-  position: absolute;
+  display: flex;
+  margin: auto;
+  height: 700px;
+  width: 900px;
 }
 
 #coffee-canvas {
-  background-image: url("/src/assets/images/cafe_background.png");
+  background-image: url("../images/cafe_background.png");
   background-size: 900px 700px;
-  background-repeat: no-repeat;
-  position: absolute;
-  transform: translate(50%, 25%);
   z-index: 1;
   border: 3px solid black;
   border-radius: 12px;
-  zoom: 80%;
+  margin-bottom: 3px;
 }
 
 .navlinks {
   filter: invert(100%);
   display: flex;
-  gap: 60px;
+  position: fixed;
+  /* gap: 60px; */
   z-index: 4503;
-  transform: translate(4.5%, 5%);
+  width: 22%;
 }
 
 #github:hover {
@@ -242,14 +256,22 @@ canvas {
 }
 
 footer {
-  position: absolute;
-  font-size: 15px;
+  font-size: 25px;
   display: flex;
   flex-direction: row;
   color: papayawhip;
-  bottom: 30px;
-  right: 25%;
-  left: 40%;
-  margin-left: -150px;
+  justify-content: center;
   text-shadow: -1px 0 black, 0 0.5px white, 6px 0 black, 0 -1px black;
+  margin-top: 15px;
+}
+
+@media only screen and (max-width: 1280px) {
+  canvas {
+    width: 800px;
+    height: 600px;
+  }
+  #coffeeuptitle {
+    height: 100px;
+    min-width: 630px;
+  }
 }
