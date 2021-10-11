@@ -13,6 +13,15 @@
 html {
   min-width: 1440px;
   min-height: 900px;
+  width: 100%;
+  height: 100%;
+  background-image: url(5830bab92d696e02b416.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 * {
@@ -20,23 +29,33 @@ html {
   overflow: hidden;
 }
 
-button {
-  outline: 0;
-  -webkit-appearance: none;
-  display: inline;
-  position: absolute;
+#instructions {
   padding: 15px 32px;
-  background: transparent;
+  background: #00000091;
   color: whitesmoke;
   font-size: 25px;
-  transform: translate(12.5%, 10%);
   text-shadow: -2px 0 black, 0 2px black, 4px 0 black, 0 -2px black;
   border-radius: 10px;
+  /* margin: auto; */
 }
 
-button:hover {
+#instructions:hover {
   border-style: solid;
   border-color: whitesmoke;
+}
+
+.middle-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.middle-container div {
+  width: calc(100vw - 900px);
+}
+
+.middle-container-last-child {
+  width: 264.344px;
 }
 
 .modal {
@@ -54,16 +73,13 @@ button:hover {
 
 .modal-content {
   background-color: snow;
-  transform: translate(40%, 22%);
   border: 1px solid #888;
   font-size: 22px;
-  width: 55%;
-  height: 77.5%;
-  text-align: center;
-  gap: 0px;
+  width: 900px;
+  height: 600px;
   z-index: 4501;
   border-radius: 10px;
-  overflow: hidden;
+  margin: auto;
 }
 
 .modal-content > p {
@@ -73,15 +89,17 @@ button:hover {
   border-bottom: 1px dashed peru;
 }
 
+#htp {
+  color: peru;
+  text-shadow: -2px 0 black, 0 4px black, 7px 0 black, 0 -2px black;
+  text-align: center;
+}
+
 #youngceo {
   color: peru;
   text-shadow: -1px 0 black, 0 1px black, 3px 0 black, 0 -1px black;
   font-size: 25px;
-}
-
-#htp {
-  color: peru;
-  text-shadow: -2px 0 black, 0 4px black, 7px 0 black, 0 -2px black;
+  text-align: center;
 }
 
 .close {
@@ -203,9 +221,11 @@ li {
 }
 
 #coffeeuptitle {
-  height: 130px;
+  height: 100px;
   min-width: 730px;
   margin: 10px;
+  background: #000000ad;
+  border-radius: 10px;
 }
 
 .title-container {
@@ -213,20 +233,13 @@ li {
   justify-content: center;
 }
 
-.background {
-  background-image: url(5830bab92d696e02b416.jpg);
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: auto;
-  /* background-repeat: no-repeat; */
-}
-
 canvas {
   display: flex;
   margin: auto;
   height: 700px;
   width: 900px;
+  -webkit-box-shadow: 0px 0px 8px 5px #3f3f3f;
+  box-shadow: 0px 0px 8px 5px #3f3f3f;
 }
 
 #coffee-canvas {
@@ -236,23 +249,28 @@ canvas {
   border: 3px solid black;
   border-radius: 12px;
   margin-bottom: 3px;
+  min-width: 900px;
 }
 
 .navlinks {
-  filter: invert(100%);
   display: flex;
+  justify-content: space-around;
   position: fixed;
   /* gap: 60px; */
   z-index: 4503;
-  width: 22%;
+  width: 18%;
+  min-width: 300px;
+  background: #000000ad;
+  min-height: 70px;
+  border-radius: 10px;
+  align-items: center;
 }
 
-#github:hover {
-  filter: brightness(10%);
-  opacity: 0.5;
+.navlinks a img {
+  filter: invert(100%);
 }
 
-#linkedin:hover {
+.icon:hover {
   filter: brightness(10%);
   opacity: 0.5;
 }
@@ -270,7 +288,7 @@ footer {
 @media only screen and (max-width: 1280px) {
   canvas {
     width: 800px;
-    height: 600px;
+    height: 700px;
   }
 
   #coffeeuptitle {

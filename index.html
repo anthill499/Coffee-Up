@@ -2,6 +2,11 @@
 
 <html lang="en">
   <head>
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      name="viewport"
+    />
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,7 +36,7 @@
 
   <body class="background">
     <div class="title-container">
-      <img src="src/assets/images/coffeeuptitle3.png" id="coffeeuptitle" />
+      <img src="src/assets/images/coffeeuptitle4.png" id="coffeeuptitle" />
     </div>
 
     <div id="startscreen">
@@ -39,7 +44,11 @@
       <p>Please read instructions</p>
     </div>
 
-    <canvas id="coffee-canvas"></canvas>
+    <div class="middle-container">
+      <div><button id="instructions">Instructions</button></div>
+      <canvas id="coffee-canvas"></canvas>
+      <div class="middle-container-last-child">a</div>
+    </div>
     <!-- 
     <div id="scoreboard-div"></div>
     <div id="orders"></div>
@@ -53,7 +62,6 @@
       <p>Press space to play again</p>
     </div> -->
 
-    <button id="instructions">Instructions</button>
     <div id="modal" class="modal">
       <div class="modal-content">
         <div class="close">&times;</div>
@@ -82,30 +90,6 @@
         <p id="youngceo">Good Luck, YOUNG CEO, happy roasting!</p>
       </div>
     </div>
-    <div id="controls">
-      <p>CATEGORIES</p>
-      <ul>
-        <li>left: drink size</li>
-        <li>right: coffee type</li>
-        <li>up: toppings</li>
-        <li>down: temperature</li>
-      </ul>
-      <p>INGREDIENTS</p>
-      <ul>
-        <li>Q: SMALL</li>
-        <li>W: MEDIUM</li>
-        <li>E: LARGE</li>
-        <li>A: REGULAR COFFEE</li>
-        <li>S: COLD BREW</li>
-        <li>D: LATTE</li>
-        <li>F: CAPPUCINO</li>
-        <li>Z: TAPIOCA</li>
-        <li>X: SUGAR</li>
-        <li>C: MILK</li>
-        <li>1: HOT</li>
-        <li>2: COLD</li>
-      </ul>
-    </div>
   </body>
 
   <footer>
@@ -115,14 +99,14 @@
           src="./src/assets/images/github-sign.png"
           width="45px"
           height="45"
-          id="github"
+          class="icon"
       /></a>
       <a href="https://www.linkedin.com/in/anthonyhuang499/" target="_blank"
         ><img
           src="./src/assets/images/linkedin-logo.png"
           width="45px"
           height="45px"
-          id="linkedin"
+          class="icon"
         />
       </a>
       <a href="https://angel.co/u/anthony-huang-8" target="_blank"
@@ -130,7 +114,7 @@
           src="./src/assets/images/angelist.png"
           width="45px"
           height="45px"
-          id="linkedin"
+          class="icon"
         />
       </a>
     </div>
