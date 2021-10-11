@@ -21,17 +21,20 @@
       content="Coffee-Up! is a game that emulates the start of a coffee business from its grand opening to its normal days! Customers come in and order drinks consisting of a list of ingredients. Your responsibility is to assemble the drink together as more customers come in to the shop."
     />
     <meta property="og:url" content="https://anthill499.github.io/Coffee-Up/" />
-  </head>
-
-  <body class="background">
     <audio
       src="./src/assets/audio/LostiFi - Galactic Strings.mp3"
       id="bangers"
       loop
     ></audio>
     <audio src="./src/assets/audio/Do You.mp3" id="mybeat" loop></audio>
+  </head>
 
-    <img src="src/assets/images/coffeeuptitle3.png" id="coffeeuptitle" />
+  <body class="background">
+    <div class="title-container">
+      <img src="src/assets/images/coffeeuptitle3.png" id="coffeeuptitle" />
+    </div>
+    <canvas id="coffee-canvas"></canvas>
+
     <div id="scoreboard-div"></div>
     <div id="orders"></div>
     <div id="pause" class="hidden">
@@ -43,37 +46,12 @@
       <h1>GAME OVER</h1>
       <p>Press space to play again</p>
     </div>
-    <div id="controls">
-      <p>CATEGORIES</p>
-      <ul>
-        <li>left: drink size</li>
-        <li>right: coffee type</li>
-        <li>up: toppings</li>
-        <li>down: temperature</li>
-      </ul>
-      <p>INGREDIENTS</p>
-      <ul>
-        <li>Q: SMALL</li>
-        <li>W: MEDIUM</li>
-        <li>E: LARGE</li>
-        <li>A: REGULAR COFFEE</li>
-        <li>S: COLD BREW</li>
-        <li>D: LATTE</li>
-        <li>F: CAPPUCINO</li>
-        <li>Z: TAPIOCA</li>
-        <li>X: SUGAR</li>
-        <li>C: MILK</li>
-        <li>1: HOT</li>
-        <li>2: COLD</li>
-      </ul>
-    </div>
+
     <div id="startscreen">
-      press space to start!
+      <div>press space to start!</div>
       <p>Please read instructions</p>
     </div>
-    <main>
-      <canvas id="coffee-canvas"></canvas>
-    </main>
+
     <div class="navlinks">
       <a href="https://github.com/anthill499"
         ><img
@@ -91,9 +69,7 @@
         />
       </a>
     </div>
-
     <button id="instructions">Instructions</button>
-
     <div id="modal" class="modal">
       <div class="modal-content">
         <div class="close">&times;</div>
@@ -121,6 +97,30 @@
 
         <p id="youngceo">Good Luck, YOUNG CEO, happy roasting!</p>
       </div>
+    </div>
+    <div id="controls">
+      <p>CATEGORIES</p>
+      <ul>
+        <li>left: drink size</li>
+        <li>right: coffee type</li>
+        <li>up: toppings</li>
+        <li>down: temperature</li>
+      </ul>
+      <p>INGREDIENTS</p>
+      <ul>
+        <li>Q: SMALL</li>
+        <li>W: MEDIUM</li>
+        <li>E: LARGE</li>
+        <li>A: REGULAR COFFEE</li>
+        <li>S: COLD BREW</li>
+        <li>D: LATTE</li>
+        <li>F: CAPPUCINO</li>
+        <li>Z: TAPIOCA</li>
+        <li>X: SUGAR</li>
+        <li>C: MILK</li>
+        <li>1: HOT</li>
+        <li>2: COLD</li>
+      </ul>
     </div>
   </body>
 

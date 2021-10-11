@@ -97,14 +97,10 @@ footer:hover {
 }
 
 #startscreen {
-  /* position: absolute; */
   z-index: 9;
   font-size: 50px;
   /* Center vertically and horizontally */
   position: absolute;
-  top: 50%;
-  left: 30%;
-  margin: -25px 0 0 -25px;
   text-shadow: -1px 0 black, 0 4px black, 5px 0 black, 0 -2px black;
   filter: brightness(200%);
   color: white;
@@ -132,9 +128,7 @@ audio {
 }
 
 #controls {
-  position: absolute;
   font-size: 26px;
-  transform: translate(330.5%, 23%);
   font-weight: 1000;
   color: snow;
   text-shadow: -1px 0 black, 0 0.5px white, 6px 0 black, 0 -1px black;
@@ -167,7 +161,7 @@ li {
 }
 
 #scoreboard-div {
-  position: absolute;
+  /* position: absolute; */
   text-shadow: -1px 0 black, 0 0.5px white, 6px 0 black, 0 -1px black;
   color: orange;
   transform: translate(18%, 30%);
@@ -195,35 +189,36 @@ li {
 }
 
 #coffeeuptitle {
-  position: absolute;
-  z-index: 4500;
-  display: inline-block;
   height: 130px;
-  transform: translate(50%, 7.5%);
-  /* filter: brightness(160%); */
+  min-width: 730px;
+  margin: 10px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
 }
 
 .background {
   background-image: url(900dc59d55430653ed9e.jpeg);
-  background-repeat: no-repeat;
-  background-size: 120%;
-  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 canvas {
-  position: absolute;
+  display: flex;
+  margin: auto;
 }
 
 #coffee-canvas {
   background-image: url(9158235717c227d66bb9.png);
   background-size: 900px 700px;
-  background-repeat: no-repeat;
-  position: absolute;
-  transform: translate(50%, 25%);
   z-index: 1;
   border: 3px solid black;
   border-radius: 12px;
-  zoom: 80%;
+  margin-bottom: 3px;
 }
 
 .navlinks {
@@ -245,18 +240,14 @@ canvas {
 }
 
 footer {
-  position: absolute;
-  font-size: 15px;
+  font-size: 25px;
   display: flex;
   flex-direction: row;
   color: papayawhip;
-  bottom: 30px;
-  right: 25%;
-  left: 40%;
-  margin-left: -150px;
+  justify-content: center;
   text-shadow: -1px 0 black, 0 0.5px white, 6px 0 black, 0 -1px black;
+  margin-top: 15px;
 }
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
-
