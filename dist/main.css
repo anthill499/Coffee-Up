@@ -38,13 +38,14 @@ html {
   text-shadow: -2px 0 black, 0 2px black, 4px 0 black, 0 -2px black;
   border-radius: 10px;
   position: relative;
-  z-index: 5000 !important;
-  /* cursor: pointer; */
+  z-index: 9992 !important;
+  cursor: pointer;
 }
 
 .instruction-btn-div {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 #instructions:hover {
@@ -56,11 +57,10 @@ html {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  /* pointer-events: none; */
 }
 
 .middle-container div {
-  width: calc((100vw - 900px) / 2);
+  width: calc((1920px - 1000px) / 2);
   min-width: 260px;
 }
 
@@ -71,7 +71,7 @@ html {
 .modal {
   display: none;
   position: fixed;
-  z-index: 12;
+  z-index: 9995 !important;
   left: 0;
   top: 0;
   width: 100%;
@@ -132,9 +132,9 @@ html {
 }
 
 #startscreen {
-  height: 706px;
+  height: 600px;
   font-size: 50px;
-  position: fixed;
+  position: absolute;
   text-shadow: -1px 0 black, 0 4px black, 5px 0 black, 0 -2px black;
   filter: brightness(200%);
   color: white;
@@ -145,6 +145,7 @@ html {
   flex-direction: column;
   justify-content: center;
   min-width: 1440px;
+  z-index: 9991;
 }
 
 #startscreen p {
@@ -156,6 +157,7 @@ html {
 
 audio {
   position: absolute;
+  visibility: none;
 }
 
 #game-lost {
@@ -180,7 +182,6 @@ li {
 #gameover {
   font-size: 42.5px;
   position: absolute;
-  transform: translate(55%, 100%);
   z-index: 8;
   text-align: center;
   text-shadow: -2px 0 black, 0 0.5px white, 6px 0 black, 0 -2px black;
@@ -192,7 +193,6 @@ li {
 #pause {
   font-size: 45px;
   position: absolute;
-  transform: translate(70%, 120%);
   z-index: 7 !important;
   text-align: center;
   text-shadow: -1px 0 black, 0 4px black, 5px 0 black, 0 -2px black;
@@ -200,10 +200,8 @@ li {
 }
 
 #scoreboard-div {
-  /* position: absolute; */
   text-shadow: -1px 0 black, 0 0.5px white, 6px 0 black, 0 -1px black;
   color: orange;
-  transform: translate(18%, 30%);
   font-size: 45px;
   filter: brightness(120%);
 }
@@ -213,10 +211,8 @@ li {
   position: absolute;
   text-shadow: -1px 0 black, 0 2px black, 4px 0 black, 0 -1px black;
   z-index: 3;
-  transform: translate(52.5%, 25%);
   filter: brightness(120%);
   padding: 0px;
-  width: 100%;
   font-size: 32px;
   border: 1px black;
 }
@@ -286,7 +282,7 @@ footer {
   justify-content: center;
 }
 
-@media only screen and (max-width: 1440px) {
+@media only screen and (max-width: 1750px) {
   canvas {
     height: 550px;
     width: 800px;
@@ -308,7 +304,7 @@ footer {
   }
 
   .middle-container div {
-    width: calc((100vw - 800px) / 2);
+    width: calc((1440px - 900px) / 2);
     /* min-width: 260px; */
   }
 
