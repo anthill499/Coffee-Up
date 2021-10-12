@@ -331,4 +331,11 @@ footer {
   .startscreen {
     min-width: 1280px;
   }
+  .middle-container-last-child h3 {
+    font-size: 25px;
+  }
+
+  .key-commands-container {
+    font-size: 15px;
+  }
 }
