@@ -89,6 +89,7 @@ html {
   z-index: 4501;
   border-radius: 10px;
   margin: auto;
+  margin-top: 8%;
 }
 
 .modal-content > p {
@@ -261,7 +262,6 @@ canvas {
   display: flex;
   justify-content: space-around;
   position: fixed;
-  /* gap: 60px; */
   z-index: 4503;
   width: 18%;
   min-width: 300px;
