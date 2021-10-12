@@ -42,10 +42,9 @@ html {
   /* cursor: pointer; */
 }
 
-#instructions-container:first-child {
+.instruction-btn-div {
   display: flex;
   justify-content: center;
-  width: inherit;
 }
 
 #instructions:hover {
@@ -287,7 +286,7 @@ footer {
   justify-content: center;
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1440px) {
   canvas {
     height: 550px;
     width: 800px;
