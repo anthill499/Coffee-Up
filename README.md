@@ -1,5 +1,6 @@
-# Welcome to Coffee-Up! 
+# Welcome to [Coffee-Up!](https://anthill499.github.io/Coffee-Up/)
 
+![coffeeuppic](https://user-images.githubusercontent.com/79227636/137003363-af00a60e-5ee9-4a73-9d2f-2272e10582de.PNG)
 # Background
 
 ***Coffee-Up!*** is a game that emulates the start of a coffee business from its grand opening to its normal days! Customers come in and order drinks consisting of a list of ingredients. Your responsibility is to assemble the drink together as more customers come in to the shop. This game is ```phase``` and ```level-based``` in that every week consists of ``7 levels``, representing every day of the week. For example,  ```Phase 1``` is the grand opening week and every level represents level each day of the week. e.g (```Monday``` - ```Sunday```). So, the goal is to:
@@ -9,8 +10,6 @@
 2) Maximize ```sales```(points)
 
 3) The business will close if your ```sales``` reaches below ```0```
-
-
 
 # Functionality & MVPs
 
@@ -142,6 +141,41 @@ canvas.
     - Add person nav links.
 
 6) ```Thursday Morning```: Deploy to Github pages
+
+# Favorite Code Snippet
+
+```javascript
+    generateRandomOrders() {                   
+        const clevel = this.cl;
+        const cphase = (this.cp === 1) ? this.cp : Math.ceil(this.cp / 2);
+        const finalOrderArray = [];
+        
+        for (let i = 0; i < clevel; i++) { 
+            const orderArray = [];
+            orderArray.push(Order.categoryKeys["leftKey"])
+            orderArray.push(this.drinkSizesKeyBindings[this.generateRandomIndex(this.drinkSizes)]);
+
+            orderArray.push(Order.categoryKeys["rightKey"])
+            orderArray.push(this.coffeeTypesKeyBindings[this.generateRandomIndex(this.coffeeTypes)]);
+
+            for (let j = 0; j < cphase; j++) {
+                orderArray.push(Order.categoryKeys["upKey"])
+                orderArray.push(this.toppingsKeyBindings[this.generateRandomIndex(this.toppings)]);
+            }
+
+            orderArray.push(Order.categoryKeys["downKey"])
+            orderArray.push(this.temperatureKeyBindings[this.generateRandomIndex(this.temperature)]);
+            finalOrderArray.push(orderArray)
+        }
+        return finalOrderArray;
+    };
+
+    generateRandomIndex(list) {
+        return Math.floor(Math.random() * (list.length));
+    };
+```
+
+This code snippet was my favorite part of the project because it represents how the orders in the game are generated. The first function returns a 2D array of orders for every round. The elements of the array are orders that are generating by randomly indexing into an array/dictionary. The second function is a helper method that generates the random index.
          
 # Bonus Implementation
 
