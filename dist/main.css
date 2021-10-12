@@ -22,6 +22,7 @@ html {
   background-size: auto;
   background-repeat: no-repeat;
   background-position: center;
+  transform: scale(1, 1);
 }
 
 * {
@@ -36,7 +37,13 @@ html {
   font-size: 25px;
   text-shadow: -2px 0 black, 0 2px black, 4px 0 black, 0 -2px black;
   border-radius: 10px;
-  /* margin: auto; */
+  position: relative;
+  z-index: 5000 !important;
+  /* cursor: pointer; */
+}
+
+#instructions-container {
+  /* pointer-events: none; */
 }
 
 #instructions:hover {
@@ -48,10 +55,12 @@ html {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  /* pointer-events: none; */
 }
 
 .middle-container div {
   width: calc(100vw - 900px);
+  min-width: 260px;
 }
 
 .middle-container-last-child {
@@ -118,10 +127,6 @@ html {
   color: black;
   text-decoration: none;
   cursor: pointer;
-}
-
-footer:hover {
-  font-style: oblique;
 }
 
 #startscreen {
@@ -276,13 +281,8 @@ canvas {
 }
 
 footer {
-  font-size: 25px;
   display: flex;
-  flex-direction: row;
-  color: papayawhip;
   justify-content: center;
-  text-shadow: -1px 0 black, 0 0.5px white, 6px 0 black, 0 -1px black;
-  margin-top: 15px;
 }
 
 @media only screen and (max-width: 1280px) {
@@ -294,6 +294,10 @@ footer {
   #coffeeuptitle {
     height: 100px;
     min-width: 630px;
+  }
+
+  #instructions {
+    padding: 15px 20px;
   }
 }
 /*!*************************************************************************************************************************************!*\
