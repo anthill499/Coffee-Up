@@ -39,11 +39,21 @@
       <img src="src/assets/images/coffeeuptitle4.png" id="coffeeuptitle" />
     </div>
 
-    <div id="startscreen">
+    <div class="startscreen">
       <div>press space to start!</div>
       <p>Please read instructions</p>
     </div>
 
+    <div class="orders"></div>
+    <div class="pause hidden">
+      GAME PAUSED
+      <p>Press P to Unpause</p>
+      <p>Press zero to restart</p>
+    </div>
+    <div class="gameover hidden">
+      <h1>GAME OVER</h1>
+      <p>Press space to play again</p>
+    </div>
     <div class="middle-container">
       <div class="instructions-container">
         <div class="instruction-btn-div">
@@ -54,6 +64,7 @@
       <canvas id="coffee-canvas"></canvas>
       <div class="middle-container-last-child">ANWDKAJWDBNAKWJDAKJWD</div>
     </div>
+
     <div id="modal" class="modal">
       <div class="modal-content">
         <div class="close">&times;</div>
@@ -82,29 +93,21 @@
         <p id="youngceo">Good Luck, YOUNG CEO, happy roasting!</p>
       </div>
     </div>
-
-    <div id="orders"></div>
-    <div id="pause" class="hidden">
-      GAME PAUSED
-      <p>Press P to Unpause</p>
-      <p>Press zero to restart</p>
-    </div>
-    <div id="gameover" class="hidden">
-      <h1>GAME OVER</h1>
-      <p>Press space to play again</p>
-    </div>
   </body>
 
   <footer>
     <div class="navlinks">
-      <a href="https://github.com/anthill499" target="_blank"
+      <a href="https://github.com/anthill499" target="_blank" title="Github"
         ><img
           src="./src/assets/images/github-sign.png"
           width="45px"
           height="45"
           class="icon"
       /></a>
-      <a href="https://www.linkedin.com/in/anthonyhuang499/" target="_blank"
+      <a
+        href="https://www.linkedin.com/in/anthonyhuang499/"
+        target="_blank"
+        title="LinkedIn"
         ><img
           src="./src/assets/images/linkedin-logo.png"
           width="45px"
@@ -112,9 +115,23 @@
           class="icon"
         />
       </a>
-      <a href="https://angel.co/u/anthony-huang-8" target="_blank"
+      <a
+        href="https://angel.co/u/anthony-huang-8"
+        target="_blank"
+        title="AngelList"
         ><img
           src="./src/assets/images/angelist.png"
+          width="45px"
+          height="45px"
+          class="icon"
+        />
+      </a>
+      <a
+        href="https://www.anthonyhuang.dev/"
+        target="_blank"
+        title="Personal Site"
+        ><img
+          src="./src/assets/images/user.png"
           width="45px"
           height="45px"
           class="icon"

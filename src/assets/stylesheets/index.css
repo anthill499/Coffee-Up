@@ -89,7 +89,7 @@ html {
   z-index: 4501;
   border-radius: 10px;
   margin: auto;
-  margin-top: 8%;
+  margin-top: 7%;
 }
 
 .modal-content > p {
@@ -130,7 +130,7 @@ html {
   cursor: pointer;
 }
 
-#startscreen {
+.startscreen {
   height: 600px;
   font-size: 50px;
   position: absolute;
@@ -147,7 +147,7 @@ html {
   z-index: 9991;
 }
 
-#startscreen p {
+.startscreen p {
   font-size: 35px;
   color: darkorange;
   filter: brightness(50%);
@@ -163,10 +163,6 @@ audio {
   mix-blend-mode: luminosity;
 }
 
-.hidden {
-  display: none;
-}
-
 #controls {
   font-size: 26px;
   font-weight: 1000;
@@ -178,7 +174,7 @@ li {
   list-style: none;
 }
 
-#gameover {
+.gameover {
   font-size: 42.5px;
   position: absolute;
   z-index: 8;
@@ -189,7 +185,7 @@ li {
   font-style: oblique;
 }
 
-#pause {
+.pause {
   font-size: 45px;
   position: absolute;
   z-index: 7 !important;
@@ -205,7 +201,7 @@ li {
   filter: brightness(120%);
 }
 
-#orders {
+.orders {
   color: whitesmoke;
   position: absolute;
   text-shadow: -1px 0 black, 0 2px black, 4px 0 black, 0 -1px black;
@@ -214,6 +210,8 @@ li {
   padding: 0px;
   font-size: 32px;
   border: 1px black;
+  width: 100%;
+  transform: translateX(50%);
 }
 
 .checked-off {
@@ -276,6 +274,10 @@ canvas {
   opacity: 0.5;
 }
 
+.hidden {
+  display: none;
+}
+
 footer {
   display: flex;
   justify-content: center;
@@ -302,7 +304,7 @@ footer {
     width: calc((1440px - 900px) / 2);
     /* min-width: 260px; */
   }
-  #startscreen {
+  .startscreen {
     min-width: 1280px;
   }
 }
