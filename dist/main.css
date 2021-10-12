@@ -182,8 +182,8 @@ li {
   text-align: center;
   text-shadow: -2px 0 black, 0 0.5px white, 6px 0 black, 0 -2px black;
   color: red;
-  gap: 50%;
-  font-style: oblique;
+  width: 100%;
+  top: 25%;
 }
 
 .pause {
@@ -193,6 +193,8 @@ li {
   text-align: center;
   text-shadow: -1px 0 black, 0 4px black, 5px 0 black, 0 -2px black;
   color: snow;
+  width: 100%;
+  top: 25%;
 }
 
 #scoreboard-div {
