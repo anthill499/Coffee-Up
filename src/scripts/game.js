@@ -88,7 +88,7 @@ class Game {
 
   // Timer functions
   setOrderTime() {
-    this.timer = this.phase > 1 ? 10 : 1000;
+    this.timer = this.phase > 1 ? 10 : 15;
   }
 
   timeClock() {
